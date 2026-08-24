@@ -2,51 +2,113 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
 <title>전시정보 캘린더</title>
 <meta name="description" content="널위한문화예술 · 아츠앤트래블 채널 기반 전시 캘린더" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+<meta name="theme-color" content="#fbf9fb" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="app-header">
-    <h1>🎨 전시정보 캘린더</h1>
-    <p class="sub">널위한문화예술 · 아츠앤트래블 채널에서 추천한 전시</p>
-  </header>
+  <div id="app">
 
-  <main>
-    <section class="calendar-card">
-      <div class="cal-nav">
-        <button id="prevMonth" aria-label="이전 달">‹</button>
-        <div id="monthLabel" class="month-label">2026년 8월</div>
-        <button id="nextMonth" aria-label="다음 달">›</button>
+    <!-- 캘린더 탭 -->
+    <section id="tab-cal" class="tab-view">
+      <div class="statusbar-pad"></div>
+      <header class="cal-header">
+        <div class="cal-header-row">
+          <div class="month-title"><span id="calMonth">8월</span><span id="calYear">2026</span></div>
+          <div class="month-nav">
+            <button id="prevMonth" aria-label="이전 달">‹</button>
+            <button id="nextMonth" aria-label="다음 달">›</button>
+          </div>
+        </div>
+        <div id="dateStrip" class="date-strip"></div>
+      </header>
+      <div class="sel-summary">
+        <span id="selDateLabel" class="d"></span>
+        <span id="selCountLabel" class="c"></span>
       </div>
-      <div class="weekday-row">
-        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
-      </div>
-      <div id="calGrid" class="cal-grid"></div>
+      <ul id="calCardList" class="card-list"></ul>
     </section>
 
-    <section class="agenda-card">
-      <div class="agenda-header">
-        <h2 id="agendaTitle">진행중 · 예정 전시</h2>
-        <button id="clearFilter" class="ghost-btn" hidden>전체보기</button>
+    <!-- 지도 탭 -->
+    <section id="tab-map" class="tab-view" hidden>
+      <div class="map-area">
+        <svg class="map-bg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="100" height="100" fill="#eef0e8"/>
+          <circle cx="83" cy="20" r="11" fill="#d8e2cf"/>
+          <path d="M-5,30 C25,25 60,34 105,28" stroke="#e6ddc9" stroke-width="5" fill="none" opacity=".8"/>
+          <path d="M-5,58 C28,53 66,66 105,57 L105,68 C66,77 28,64 -5,69 Z" fill="#cfe0ea" opacity=".8"/>
+          <g stroke="#e7e2ec" stroke-width=".3">
+            <line x1="20" y1="0" x2="20" y2="100"/><line x1="45" y1="0" x2="45" y2="100"/>
+            <line x1="70" y1="0" x2="70" y2="100"/>
+            <line x1="0" y1="20" x2="100" y2="20"/><line x1="0" y1="45" x2="100" y2="45"/>
+            <line x1="0" y1="70" x2="100" y2="70"/>
+          </g>
+        </svg>
+        <div class="map-search-row">
+          <div class="map-search-box">
+            <span class="search-dot"></span>
+            <input id="mapSearchInput" placeholder="전시·장소 검색" />
+          </div>
+          <button class="map-filter-btn" id="mapSortBtn">필터</button>
+        </div>
+        <button id="offMapChip" class="off-map-chip" hidden></button>
+        <div id="mapPins" class="map-pins"></div>
+        <div id="originMarker" class="origin-marker">
+          <span class="origin-dot"></span>
+          <span class="origin-label">기준: 건대입구</span>
+        </div>
+        <div class="map-carousel-wrap">
+          <div class="carousel-header">
+            <span class="pill dark">이동시간 가까운 순</span>
+            <span id="carouselFocusLabel" class="pill light" hidden></span>
+          </div>
+          <div id="mapCarousel" class="map-carousel"></div>
+        </div>
       </div>
-      <ul id="agendaList" class="agenda-list"></ul>
     </section>
-  </main>
 
-  <div id="detailSheet" class="sheet-overlay" hidden>
-    <div class="sheet">
-      <button id="closeSheet" class="sheet-close" aria-label="닫기">✕</button>
-      <div id="sheetBody"></div>
+    <!-- 저장 탭 -->
+    <section id="tab-saved" class="tab-view" hidden>
+      <div class="statusbar-pad"></div>
+      <header class="page-header">
+        <h1>저장한 전시</h1>
+        <p id="savedSub" class="page-sub"></p>
+      </header>
+      <ul id="savedList" class="card-list saved-list"></ul>
+    </section>
+
+    <!-- 더보기 탭 -->
+    <section id="tab-more" class="tab-view" hidden>
+      <div class="statusbar-pad"></div>
+      <header class="page-header"><h1>더보기</h1></header>
+      <div class="more-rows">
+        <div class="more-row"><span>기준 위치 설정</span><span>건대입구</span></div>
+        <div class="more-row"><span>알림</span><span>종료 D-7</span></div>
+        <div class="more-row"><span>데이터 출처</span><span>널위한문화예술 외</span></div>
+      </div>
+      <p class="more-footnote">매주 자동 업데이트 · 정보 오류/변경 시 방문 전 공식 채널 재확인 권장<br/>최근 업데이트: <span id="genAt2"></span></p>
+    </section>
+
+    <!-- 전시 상세 바텀시트 -->
+    <div id="detailSheet" class="sheet-overlay" hidden>
+      <div class="sheet">
+        <div class="sheet-handle"></div>
+        <div id="sheetBody"></div>
+      </div>
     </div>
-  </div>
 
-  <footer class="app-footer">
-    <p>매주 자동 업데이트 · 정보 오류/변경 시 방문 전 공식 채널 재확인 권장</p>
-    <p id="genAt"></p>
-  </footer>
+    <!-- 하단 탭바 -->
+    <nav class="tabbar">
+      <button class="tab-btn active" data-tab="cal"><span class="tab-icon icon-cal"></span><span class="tab-label">캘린더</span></button>
+      <button class="tab-btn" data-tab="map"><span class="tab-icon icon-map"></span><span class="tab-label">지도</span></button>
+      <button class="tab-btn" data-tab="saved"><span class="tab-icon icon-saved"></span><span class="tab-label">저장</span></button>
+      <button class="tab-btn" data-tab="more"><span class="tab-icon icon-more"></span><span class="tab-label">더보기</span></button>
+    </nav>
+  </div>
 
   <script src="app.js"></script>
 </body>
