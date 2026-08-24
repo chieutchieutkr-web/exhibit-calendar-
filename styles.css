@@ -193,7 +193,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
   height: 150px; border-radius: 18px; margin-bottom: 14px; overflow: hidden; position: relative;
   display: flex; align-items: center; justify-content: center; color: #fff;
 }
-.sheet-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sheet-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .sheet-image .placeholder-label { font-size: 13px; font-weight: 600; opacity: .85; }
 .sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
 .sheet-grid .box { background: var(--field-bg); border-radius: 14px; padding: 12px; }
