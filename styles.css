@@ -105,7 +105,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 /* ---- 지도 탭 ---- */
 #tab-map { padding-bottom: 0; height: calc(100vh - 76px); overflow: hidden; position: relative; }
 .map-area { position: relative; width: 100%; height: 100%; background: #eef0e8; overflow: hidden; }
-.map-bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.naver-map-el { position: absolute; inset: 0; width: 100%; height: 100%; }
 .map-search-row { position: absolute; left: 14px; right: 14px; top: 52px; z-index: 9; display: flex; gap: 8px; }
 .map-search-box {
   flex: 1; background: rgba(255, 255, 255, .95); border-radius: 16px; padding: 12px 14px;
@@ -123,21 +123,17 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
   border-radius: 999px; padding: 7px 12px; font-size: 10.5px; font-weight: 600; color: #5b5165; cursor: pointer; font-family: inherit;
 }
 
-.map-pins { position: absolute; inset: 0; }
-.map-pin {
-  position: absolute; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center;
-  border: none; cursor: pointer; background: none; font-family: inherit; z-index: 2; padding: 0;
-}
-.map-pin .pin-label {
+/* 네이버 지도 커스텀 마커 콘텐츠(지도 SDK가 위치를 잡아주므로 여기선 position 지정 안 함) */
+.pin-content { display: flex; flex-direction: column; align-items: center; cursor: pointer; font-family: inherit; }
+.pin-content .pin-label {
   padding: 4px 9px; border-radius: 999px; font-size: 10.5px; font-weight: 700; background: #fff;
   border: 1.5px solid rgba(0, 0, 0, .06); box-shadow: 0 3px 10px rgba(40, 20, 50, .2); white-space: nowrap;
 }
-.map-pin .pin-stem { width: 2px; height: 6px; margin-top: 1px; }
-.map-pin.focused { z-index: 6; }
-.map-pin.focused .pin-label { color: #fff; padding: 7px 12px; font-size: 12px; border-color: transparent; }
-.map-pin.focused .pin-stem { height: 10px; }
+.pin-content .pin-stem { width: 2px; height: 6px; margin-top: 1px; }
+.pin-content.focused .pin-label { color: #fff; padding: 7px 12px; font-size: 12px; border-color: transparent; }
+.pin-content.focused .pin-stem { height: 10px; }
 
-.origin-marker { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 4px; transform: translate(-50%, -50%); z-index: 3; }
+.origin-content { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .origin-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .2); }
 .origin-label { background: var(--ink); color: #fff; font-size: 9.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
 

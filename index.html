@@ -9,6 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" />
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
 <link rel="stylesheet" href="styles.css" />
+<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=w47s8j2gfc"></script>
 </head>
 <body>
   <div id="app">
@@ -36,18 +37,7 @@
     <!-- 지도 탭 -->
     <section id="tab-map" class="tab-view" hidden>
       <div class="map-area">
-        <svg class="map-bg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <rect width="100" height="100" fill="#eef0e8"/>
-          <circle cx="83" cy="20" r="11" fill="#d8e2cf"/>
-          <path d="M-5,30 C25,25 60,34 105,28" stroke="#e6ddc9" stroke-width="5" fill="none" opacity=".8"/>
-          <path d="M-5,58 C28,53 66,66 105,57 L105,68 C66,77 28,64 -5,69 Z" fill="#cfe0ea" opacity=".8"/>
-          <g stroke="#e7e2ec" stroke-width=".3">
-            <line x1="20" y1="0" x2="20" y2="100"/><line x1="45" y1="0" x2="45" y2="100"/>
-            <line x1="70" y1="0" x2="70" y2="100"/>
-            <line x1="0" y1="20" x2="100" y2="20"/><line x1="0" y1="45" x2="100" y2="45"/>
-            <line x1="0" y1="70" x2="100" y2="70"/>
-          </g>
-        </svg>
+        <div id="naverMapEl" class="naver-map-el"></div>
         <div class="map-search-row">
           <div class="map-search-box">
             <span class="search-dot"></span>
@@ -56,11 +46,6 @@
           <button class="map-filter-btn" id="mapSortBtn">필터</button>
         </div>
         <button id="offMapChip" class="off-map-chip" hidden></button>
-        <div id="mapPins" class="map-pins"></div>
-        <div id="originMarker" class="origin-marker">
-          <span class="origin-dot"></span>
-          <span class="origin-label">기준: 건대입구</span>
-        </div>
         <div class="map-carousel-wrap">
           <div class="carousel-header">
             <span class="pill dark">이동시간 가까운 순</span>

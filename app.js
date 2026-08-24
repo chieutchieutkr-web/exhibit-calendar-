@@ -13,6 +13,7 @@
     saved: loadSaved(),
     mapQuery: '',
     mapSort: 'time',    // 'time' | 'name'
+    mapBoundsFitted: false,
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -179,22 +180,39 @@
     return li;
   }
 
-  // ---------- 지도 탭 ----------
-  function project(points) {
-    const lats = points.map((p) => p.lat), lngs = points.map((p) => p.lng);
-    const minLat = Math.min(...lats), maxLat = Math.max(...lats);
-    const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
-    const padLat = (maxLat - minLat) * 0.25 || 0.01;
-    const padLng = (maxLng - minLng) * 0.25 || 0.01;
-    const lo = { lat: minLat - padLat, lng: minLng - padLng };
-    const hi = { lat: maxLat + padLat, lng: maxLng + padLng };
-    return (lat, lng) => ({
-      x: ((lng - lo.lng) / (hi.lng - lo.lng)) * 100,
-      y: ((hi.lat - lat) / (hi.lat - lo.lat)) * 100,
+  // ---------- 지도 탭 (네이버 지도 SDK) ----------
+  let naverMap = null;
+  let naverOriginMarker = null;
+  let naverMarkers = []; // { id, marker }
+
+  function ensureNaverMap() {
+    if (naverMap || typeof naver === 'undefined' || !naver.maps) return naverMap;
+    naverMap = new naver.maps.Map('naverMapEl', {
+      center: new naver.maps.LatLng(state.origin.lat, state.origin.lng),
+      zoom: 12,
+      scaleControl: false,
+      logoControl: false,
+      mapDataControl: false,
+      zoomControl: true,
+      zoomControlOptions: { position: naver.maps.Position.RIGHT_CENTER },
     });
+    return naverMap;
+  }
+
+  function pinIconHtml(ex, isFocused) {
+    const timeText = escapeHtml(ex.transit?.text?.replace('약 ', '') || '');
+    const label = isFocused
+      ? `<span class="pin-label" style="background:${ex.color};color:#fff;">${escapeHtml(ex.venue)} · ${timeText}</span>`
+      : `<span class="pin-label" style="color:${ex.color};">${timeText}</span>`;
+    return `<div class="pin-content${isFocused ? ' focused' : ''}">${label}<span class="pin-stem" style="background:${ex.color}"></span></div>`;
   }
 
   function renderMapTab() {
+    const map = ensureNaverMap();
+    if (!map) return; // 네이버 지도 스크립트 로드 전(드물게) — switchTab 재호출 시 다시 시도됨
+    // 탭 전환으로 컨테이너가 숨겨졌다 다시 보일 때 지도가 크기를 못 잡는 문제 방지
+    naver.maps.Event.trigger(map, 'resize');
+
     const withCoords = state.exhibitions.filter((ex) => ex.lat != null && ex.lng != null);
     const offMap = state.exhibitions.filter((ex) => ex.lat == null || ex.lng == null);
     const chip = $('#offMapChip');
@@ -207,41 +225,47 @@
       chip.hidden = true;
     }
 
-    // 상단 검색바/칩, 하단 캐러셀에 가리지 않도록 세로 배치 가능 영역을 20~62%로 제한
-    const Y_MIN = 20, Y_MAX = 62;
-    const proj = project([state.origin, ...withCoords]);
-    const originPt = proj(state.origin.lat, state.origin.lng);
-    const originEl = $('#originMarker');
-    originEl.style.left = `${clamp(originPt.x, 8, 92)}%`;
-    originEl.style.top = `${clamp(originPt.y, Y_MIN, Y_MAX)}%`;
-
-    // 핀 배치 + 겹침 방지(간단 버전)
-    const placed = [];
-    const items = withCoords
-      .filter((ex) => matchesQuery(ex, state.mapQuery))
-      .map((ex) => {
-        const p = proj(ex.lat, ex.lng);
-        let x = clamp(p.x, 14, 86);
-        let y = clamp(p.y, Y_MIN, Y_MAX);
-        while (placed.some((q) => Math.abs(q.x - x) < 26 && Math.abs(q.y - y) < 7)) y = clamp(y + 7, Y_MIN, Y_MAX + 10);
-        placed.push({ x, y });
-        return { ex, x, y };
+    if (!naverOriginMarker) {
+      naverOriginMarker = new naver.maps.Marker({
+        map,
+        position: new naver.maps.LatLng(state.origin.lat, state.origin.lng),
+        icon: {
+          content: `<div class="origin-content"><span class="origin-dot"></span><span class="origin-label">기준: ${escapeHtml(state.origin.label)}</span></div>`,
+          anchor: new naver.maps.Point(7, 7),
+        },
+        zIndex: 50,
       });
+    }
 
-    const pins = $('#mapPins');
-    pins.innerHTML = '';
-    items.forEach(({ ex, x, y }) => {
+    // 기존 마커 제거 후 새로 그림(전시 수가 적어 성능상 문제 없음)
+    naverMarkers.forEach((m) => m.marker.setMap(null));
+    naverMarkers = [];
+
+    const items = withCoords.filter((ex) => matchesQuery(ex, state.mapQuery));
+    const bounds = new naver.maps.LatLngBounds(new naver.maps.LatLng(state.origin.lat, state.origin.lng), new naver.maps.LatLng(state.origin.lat, state.origin.lng));
+
+    items.forEach((ex) => {
       const isFocused = state.focus === ex.id;
-      const btn = document.createElement('button');
-      btn.className = 'map-pin' + (isFocused ? ' focused' : '');
-      btn.style.left = `${x}%`;
-      btn.style.top = `${y}%`;
-      btn.innerHTML = `
-        <span class="pin-label" style="${isFocused ? `background:${ex.color};color:#fff;` : `color:${ex.color};`}">${isFocused ? `${escapeHtml(ex.venue)} · ${escapeHtml(ex.transit?.text?.replace('약 ', '') || '')}` : escapeHtml(ex.transit?.text?.replace('약 ', '') || '')}</span>
-        <span class="pin-stem" style="background:${ex.color}"></span>`;
-      btn.addEventListener('click', () => { state.focus = ex.id; renderMapTab(); openMapCarouselScrollTo(ex.id); });
-      pins.appendChild(btn);
+      const pos = new naver.maps.LatLng(ex.lat, ex.lng);
+      bounds.extend(pos);
+      const marker = new naver.maps.Marker({
+        map,
+        position: pos,
+        icon: { content: pinIconHtml(ex, isFocused), anchor: new naver.maps.Point(30, isFocused ? 40 : 28) },
+        zIndex: isFocused ? 20 : 5,
+      });
+      naver.maps.Event.addListener(marker, 'click', () => {
+        state.focus = ex.id;
+        renderMapTab();
+        openMapCarouselScrollTo(ex.id);
+      });
+      naverMarkers.push({ id: ex.id, marker });
     });
+
+    if (items.length && !state.mapBoundsFitted) {
+      map.fitBounds(bounds, { top: 110, right: 30, bottom: 260, left: 30 });
+      state.mapBoundsFitted = true;
+    }
 
     renderMapCarousel();
   }
