@@ -1,0 +1,45 @@
+{
+  "note": "이미 처리한 영상 ID 목록. 예약 자동화 스크립트가 매주 이 목록과 비교해 새 영상만 처리합니다. 수동으로 지우지 마세요.",
+  "channels": {
+    "UCZr3cu75jx6Sz-6KRQ50ySA": {
+      "name": "널위한문화예술",
+      "seenVideoIds": [
+        "QpT5wiCH9uA",
+        "js9jVQyWLwg",
+        "gND3NsVHcF4",
+        "vgKhcQN2xUY",
+        "kiUbkSRajsk",
+        "Nd_rEzYqOq8",
+        "kb_bCsciQzQ",
+        "EYWJzPPnsVc",
+        "nnwNLV3qcFA",
+        "Mvfzk_wyV9s",
+        "30EYvswYXRg",
+        "rLBC3j8fH6k",
+        "MnDjCynXmIY",
+        "knWRX0lc3xo",
+        "bkLMfbnPRJM"
+      ]
+    },
+    "UCHp20VblCGxxsV9PZzRwYBw": {
+      "name": "아츠앤트래블",
+      "seenVideoIds": [
+        "GKm8y94tUKc",
+        "9uMNff0qbCM",
+        "ZPtu0wjK-yk",
+        "JolkQMHsWbk",
+        "6htkKankKKI",
+        "Dz5_2_RcwYA",
+        "Q8qrW7CYycA",
+        "pLValf_LUtQ",
+        "tf3k3FeOvKw",
+        "JX20L1mm3dM",
+        "kMv4CKiH1Pg",
+        "goda2czGnsc",
+        "OH7HZow3dAU",
+        "-Pw4NFsr0hM",
+        "gAQeYlpJpgc"
+      ]
+    }
+  }
+}

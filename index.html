@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>전시정보 캘린더</title>
+<meta name="description" content="널위한문화예술 · 아츠앤트래블 채널 기반 전시 캘린더" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🎨 전시정보 캘린더</h1>
+    <p class="sub">널위한문화예술 · 아츠앤트래블 채널에서 추천한 전시</p>
+  </header>
+
+  <main>
+    <section class="calendar-card">
+      <div class="cal-nav">
+        <button id="prevMonth" aria-label="이전 달">‹</button>
+        <div id="monthLabel" class="month-label">2026년 8월</div>
+        <button id="nextMonth" aria-label="다음 달">›</button>
+      </div>
+      <div class="weekday-row">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+      <div id="calGrid" class="cal-grid"></div>
+    </section>
+
+    <section class="agenda-card">
+      <div class="agenda-header">
+        <h2 id="agendaTitle">진행중 · 예정 전시</h2>
+        <button id="clearFilter" class="ghost-btn" hidden>전체보기</button>
+      </div>
+      <ul id="agendaList" class="agenda-list"></ul>
+    </section>
+  </main>
+
+  <div id="detailSheet" class="sheet-overlay" hidden>
+    <div class="sheet">
+      <button id="closeSheet" class="sheet-close" aria-label="닫기">✕</button>
+      <div id="sheetBody"></div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>매주 자동 업데이트 · 정보 오류/변경 시 방문 전 공식 채널 재확인 권장</p>
+    <p id="genAt"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
