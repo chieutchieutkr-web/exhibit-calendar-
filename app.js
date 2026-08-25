@@ -14,6 +14,8 @@
     mapQuery: '',
     mapSort: 'time',    // 'time' | 'name'
     mapBoundsFitted: false,
+    myLocation: null,  // { lat, lng } — "내 위치" 버튼으로 얻은 실제 현재 위치
+    locating: false,
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -50,6 +52,26 @@
     const id = youtubeId(ex.video?.url);
     return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
   }
+  // 직선거리(km) 계산 — 실제 대중교통 경로가 아닌 대략적 추정용
+  function haversineKm(lat1, lng1, lat2, lng2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+  // 직선거리 기반 대중교통 소요시간 대략 추정(도보+환승 여유 포함) — 실측 경로가 아님, 참고용
+  function estimateMinutesFromDistance(km) {
+    const raw = 12 + (km / 17) * 60; // 기본 도보/환승 여유 12분 + 평균 이동속도 17km/h 가정
+    return Math.max(5, Math.round(raw / 5) * 5);
+  }
+  function myLocationEstimateHtml(ex, sep = '<br/>') {
+    if (!state.myLocation || ex.lat == null || ex.lng == null) return '';
+    const km = haversineKm(state.myLocation.lat, state.myLocation.lng, ex.lat, ex.lng);
+    const mins = estimateMinutesFromDistance(km);
+    return `${sep}내 위치 기준 약 ${mins}분(직선거리 추정)`;
+  }
+
   function parseTransitMinutes(text) {
     if (!text) return Infinity;
     const firstPart = text.split('~')[0];
@@ -183,7 +205,39 @@
   // ---------- 지도 탭 (네이버 지도 SDK) ----------
   let naverMap = null;
   let naverOriginMarker = null;
+  let naverMyLocationMarker = null;
   let naverMarkers = []; // { id, marker }
+
+  function locateMe() {
+    const btn = $('#locateBtn');
+    const status = $('#locateStatus');
+    if (!navigator.geolocation) {
+      status.textContent = '이 브라우저는 위치 확인을 지원하지 않아요';
+      status.hidden = false;
+      return;
+    }
+    state.locating = true;
+    btn.classList.add('locating');
+    status.textContent = '내 위치 확인 중…';
+    status.hidden = false;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        state.myLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        state.locating = false;
+        btn.classList.remove('locating');
+        status.textContent = '내 위치 기준으로 이동시간을 함께 표시할게요 (직선거리 추정치)';
+        renderMapTab();
+      },
+      (err) => {
+        state.locating = false;
+        btn.classList.remove('locating');
+        status.textContent = err.code === 1
+          ? '위치 권한이 꺼져있어요 — 브라우저 설정에서 위치 권한을 허용해주세요'
+          : '위치를 확인할 수 없었어요. 다시 시도해주세요';
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  }
 
   function ensureNaverMap() {
     if (naverMap || typeof naver === 'undefined' || !naver.maps) return naverMap;
@@ -237,6 +291,23 @@
       });
     }
 
+    if (state.myLocation) {
+      const pos = new naver.maps.LatLng(state.myLocation.lat, state.myLocation.lng);
+      if (naverMyLocationMarker) {
+        naverMyLocationMarker.setPosition(pos);
+      } else {
+        naverMyLocationMarker = new naver.maps.Marker({
+          map,
+          position: pos,
+          icon: {
+            content: `<div class="my-location-content"><span class="my-location-pulse"></span><span class="my-location-dot"></span></div>`,
+            anchor: new naver.maps.Point(9, 9),
+          },
+          zIndex: 60,
+        });
+      }
+    }
+
     // 기존 마커 제거 후 새로 그림(전시 수가 적어 성능상 문제 없음)
     naverMarkers.forEach((m) => m.marker.setMap(null));
     naverMarkers = [];
@@ -258,6 +329,7 @@
         state.focus = ex.id;
         renderMapTab();
         openMapCarouselScrollTo(ex.id);
+        openDetail(ex.id);
       });
       naverMarkers.push({ id: ex.id, marker });
     });
@@ -302,13 +374,14 @@
         <div>
           <div class="mc-title">${escapeHtml(ex.title)}</div>
           <div class="mc-addr">${escapeHtml(ex.address)}</div>
-          <div class="mc-time" style="color:${ex.color}">${escapeHtml(ex.transit?.text || '-')}</div>
+          <div class="mc-time" style="color:${ex.color}">${escapeHtml(ex.transit?.text || '-')}${myLocationEstimateHtml(ex, ' · ')}</div>
           <a class="mc-route" style="background:${ex.colorSoft};color:${ex.color}" href="${naver}" target="_blank" rel="noopener">네이버지도로 길찾기</a>
         </div>`;
       card.addEventListener('click', (e) => {
         if (e.target.closest('.mc-route')) return; // 링크 클릭은 상세시트로 안 이어지게
         state.focus = ex.id;
         renderMapTab();
+        openDetail(ex.id);
       });
       wrap.appendChild(card);
       card.dataset.exId = ex.id;
@@ -407,7 +480,8 @@
       </div>
       <div class="sheet-grid">
         <div class="box"><div class="lbl">관람시간</div><div class="val">${escapeHtml(ex.hours || '-')}${ex.closedDay ? `<br/>휴관 ${escapeHtml(ex.closedDay)}` : ''}</div></div>
-        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(ex.transit?.text || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}</div></div>
+        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(ex.transit?.text || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}${myLocationEstimateHtml(ex)}</div></div>
+        ${ex.admission ? `<div class="box admission-box"><div class="lbl">입장료</div><div class="val">${escapeHtml(ex.admission)}</div></div>` : ''}
       </div>
       <p class="sheet-address">📍 ${escapeHtml(ex.address)}</p>
       ${ex.features?.length ? `<div class="sheet-section"><div class="sec-label">이 전시의 포인트</div><ul class="point-list" style="--card-color:${ex.color}">${ex.features.map((f) => `<li>${escapeHtml(f)}</li>`).join('')}</ul></div>` : ''}
@@ -441,6 +515,7 @@
     $('#mapSortBtn').textContent = state.mapSort === 'time' ? '필터' : '이름순';
     renderMapCarousel();
   });
+  $('#locateBtn').addEventListener('click', locateMe);
 
   (async function init() {
     state.sel = todayISO();

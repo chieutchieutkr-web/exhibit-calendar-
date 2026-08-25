@@ -12,11 +12,12 @@
 3. `seenVideoIds`에 없는 새 영상만 골라낸다.
 4. 새 영상 중 설명란에 **구체적인 전시 정보**(전시 제목, 장소, 전시기간 중 최소 2개 이상)가 포함된 것만 전시로 등록한다. 단순 작가 소개·판매 홍보·미술관 탐방 브이로그로 특정 전시기간이 없는 영상은 제외한다.
 5. 전시로 판단된 영상마다 설명란 원문에서 다음을 최대한 정확히 추출한다:
-   - 전시 제목, 작가(참여작가 포함), 장소명, 주소, 전시기간(시작~종료), 관람시간, 휴관일, 야간개장 요일/시간(있는 경우만), 전시 특징(3~5개 bullet), 작가소개(2~4문장)
+   - 전시 제목, 작가(참여작가 포함), 장소명, 주소, 전시기간(시작~종료), 관람시간, 휴관일, 야간개장 요일/시간(있는 경우만), **입장료(admission)**, 전시 특징(3~5개 bullet), 작가소개(2~4문장)
    - 설명란에 주소가 없으면 장소명으로 웹 검색해서 정확한 주소를 보완한다.
+   - **입장료(admission)**: 설명란에 없으면 웹 검색으로 조사한다("장소명 + 전시명 + 관람료/입장료"). 성인/청소년/어린이 등 요금이 나뉘면 그대로 담고, 무료면 "무료"로 적는다. 끝내 확인이 안 되면 이 필드는 아예 넣지 않는다(빈 문자열/추측 금지 — 앱이 필드 없으면 그 항목을 자동으로 숨김).
 6. **건국대학교병원(서울 광진구 화양동, 건대입구역 인근) 기준 대중교통 소요시간**을 조사한다(도보+지하철/버스, 왕복 아님 편도 기준). 검색으로 정확한 값을 찾기 어려우면 "약 OO분(추정)" 형태로 합리적 추정치를 적고 `transit.note`에 추정 경로를 남긴다.
    - 장소의 위도/경도(`lat`/`lng`)도 함께 조사해서 채운다(지도 탭 핀 표시용). 서울 수도권 밖이거나 좌표를 못 찾으면 `null`로 두면 앱이 "지도 밖" 처리한다.
-7. `data/exhibitions.json`의 `exhibitions` 배열에 새 항목을 추가한다. 기존 스키마(각 필드: id, title, artist, venue, address, color, colorSoft, lat, lng, period{start,end}, hours, closedDay, nightOpen{days,time}|null, transit{text,note}, features[], artistIntro, videoHighlights[](선택), video{url,title,channel})를 그대로 따른다.
+7. `data/exhibitions.json`의 `exhibitions` 배열에 새 항목을 추가한다. 기존 스키마(각 필드: id, title, artist, venue, address, color, colorSoft, lat, lng, period{start,end}, hours, closedDay, nightOpen{days,time}|null, admission(선택), transit{text,note}, features[], artistIntro, videoHighlights[](선택), video{url,title,channel})를 그대로 따른다.
    - `color`/`colorSoft`: 전시 고유 포인트 컬러(메인/연한 배경). 기존 7색(`#C9426F`/`#3F7F79`/`#D4653A`/`#A8802A`/`#6E4E7E`/`#7C6BC4`/`#3E6FA8`, 각각의 연한 버전)이 이미 다 쓰였으면 새로운 전시색을 하나 골라 추가한다(기존 색과 너무 비슷하지 않게). `imageUrl` 필드는 넣지 않아도 된다 — 앱이 `video.url`에서 유튜브 썸네일을 자동으로 가져온다(품질 낮으면 나중에 수동으로 `imageUrl`을 추가해 덮어쓸 수 있음).
 8. 전시 기간(`period.end`)이 오늘 기준 지난 항목은 배열에서 제거한다.
 9. 이미 등록된 전시와 제목·장소가 사실상 같으면 새로 추가하지 말고 기존 항목을 갱신(정보 보완)한다.
