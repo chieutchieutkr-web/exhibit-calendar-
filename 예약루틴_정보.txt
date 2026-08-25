@@ -1,0 +1,33 @@
+전시정보 캘린더 — 자동 업데이트 예약 루틴 정보
+==============================================
+
+이름 (Name)
+  exhibit-calendar-weekly-update
+
+주기 (Schedule)
+  매주 월요일 오전 9시 (한국시간, KST)
+  cron 식(UTC 기준): 0 0 * * 1
+  다음 실행 예정: 2026년 8월 31일(월) 오전 9시경
+
+작업 내용 (What it does)
+  1. GitHub 저장소(exhibit-calendar-) 루트의 AGENT_PROMPT.md 지시사항을 읽고 그대로 실행
+  2. 널위한문화예술 · 아츠앤트래블 두 유튜브 채널의 RSS 피드에서 새 영상 확인
+     (이미 처리한 영상 목록은 data/seen.json에 기록되어 중복 처리 안 함)
+  3. 새 영상 설명란에서 전시 정보(제목/작가/장소/주소/기간/시간/야간개장 등) 추출
+  4. 장소 기준 건국대학교병원 대중교통 소요시간 및 위도/경도 조사
+  5. data/exhibitions.json, data/seen.json 갱신
+  6. 변경사항을 GitHub 저장소에 commit 및 push
+     → push되면 Vercel이 자동으로 감지해서 웹사이트를 재배포함
+  7. 작업 종료 후 신규/갱신/제거된 전시 여부를 요약 보고
+
+관리 페이지 (Management page)
+  https://claude.ai/code/routines/trig_01JgjGn4bmT4rnmZGjqkWdQf
+  (여기서 실행 기록 확인, 일시정지/재개, 지금 바로 실행 등이 가능. 단, 삭제는
+   이 링크 화면에서 직접 해야 함 — Claude가 API로 삭제는 못 함)
+
+관련 링크
+  - 배포된 앱: https://exhibit-calendar.vercel.app
+  - GitHub 저장소: https://github.com/chieutchieutkr-web/exhibit-calendar-
+  - 전체 자동화 현황판: 상위 폴더 "자동화 프로그램\자동화 상황판.url"
+
+생성일: 2026-08-25
