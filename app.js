@@ -403,8 +403,10 @@
   // 네이버 지도 검색 링크로 이동(키/앱 설치 여부와 무관하게 항상 열림).
   // 추후 실제 경로 안내가 필요하면 nmap://route/public?dlat=..&dlng=..&dname=..&appname=.. 딥링크로 교체 가능(README 참고).
   function naverDirectionsUrl(ex) {
-    const query = encodeURIComponent(`${ex.venue} ${ex.address}`.trim());
-    return `https://map.naver.com/p/search/${query}`;
+    // 장소명 + 주소를 같이 붙이면 네이버지도 검색이 못 찾는 경우가 있어 장소명만 사용
+    // (전시실 번호 등 괄호 안 부가정보는 검색에 방해되므로 제거)
+    const cleanVenue = ex.venue.replace(/\s*\(.*$/, '').trim();
+    return `https://map.naver.com/p/search/${encodeURIComponent(cleanVenue)}`;
   }
 
   // ---------- 저장 탭 ----------
