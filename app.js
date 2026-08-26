@@ -231,9 +231,14 @@
       (err) => {
         state.locating = false;
         btn.classList.remove('locating');
-        status.textContent = err.code === 1
-          ? '위치 권한이 꺼져있어요 — 브라우저 설정에서 위치 권한을 허용해주세요'
-          : '위치를 확인할 수 없었어요. 다시 시도해주세요';
+        const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+        if (err.code === 1 && isStandalone) {
+          status.textContent = '홈 화면 앱에서는 위치 권한이 막힐 때가 있어요 — Safari에서 이 사이트를 직접 열어 사용해주세요';
+        } else if (err.code === 1) {
+          status.textContent = '위치 권한이 꺼져있어요 — 브라우저의 사이트 설정에서 위치를 허용해주세요';
+        } else {
+          status.textContent = '위치를 확인할 수 없었어요. 다시 시도해주세요';
+        }
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
     );
