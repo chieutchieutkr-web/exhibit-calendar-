@@ -3,6 +3,8 @@
   "short_name": "전시캘린더",
   "description": "널위한문화예술 · 아츠앤트래블 채널 기반 전시 캘린더",
   "start_url": ".",
+  "scope": ".",
+  "id": "/",
   "display": "standalone",
   "background_color": "#fbf9fb",
   "theme_color": "#fbf9fb",
