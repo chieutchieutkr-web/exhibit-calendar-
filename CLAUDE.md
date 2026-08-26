@@ -35,6 +35,7 @@
 - **Edge 헤드리스 스크린샷으로 QA**: `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --headless --disable-gpu --window-size=520,950 --screenshot="출력경로.png" "URL"`. 참고: 이 환경에서 헤드리스 브라우저의 실제 렌더링 viewport가 요청한 `--window-size`보다 커지는 경우가 있었음(약 496px 폭으로 고정되는 현상 확인됨) — 좁은 뷰포트를 정확히 재현하려는 목적이 아니라면 window-size를 넉넉히(500 이상) 주고 스크린샷을 찍는 게 잘림 없이 확인하기 편함.
 - **app.js에 `?tab=cal|map|saved|more`, `?open=<전시id>` 쿼리 파라미터 지원 있음** — 특정 탭/상세시트를 URL로 바로 열 수 있어 QA 스크린샷 찍을 때 유용함(예: `?tab=map`, `?open=baselitz-sehwa-2026`).
 - **네이버 지도 스크립트 파라미터명 주의**: 예전 문서에는 `ncpClientId`로 나오지만, 현재(2026 기준) 정식 파라미터명은 **`ncpKeyId`**임. 틀리면 "네이버 지도 Open API 인증이 실패했습니다" 에러가 뜸(도메인 미등록 에러랑 메시지가 똑같아서 헷갈리기 쉬움 — 파라미터명부터 확인할 것).
+- **네이버지도 검색 링크는 장소명만 넣을 것**: "네이버지도로 길찾기" 딥링크(`naverDirectionsUrl`, app.js)를 처음엔 `장소명 + 전체주소`를 합쳐서 검색했더니 네이버지도가 검색결과를 못 찾는 문제가 있었음. 괄호 안 부가정보(전시실 번호 등)까지 섞이면 더 안 됨. **장소명만(괄호 이하는 잘라내고) 검색어로 써야** 정상적으로 찾음.
 - **저장(북마크) 상태는 브라우저 localStorage 기반** — 서버에 저장되지 않고 기기/브라우저별로 따로 유지됨. 종료 D-7 알림도 실시간 푸시가 아니라 앱을 열었을 때 보이는 인앱 배너임(진짜 백그라운드 알림 아님, 정적 사이트의 한계).
 - **Vercel 자동 재배포 원리**: GitHub 저장소를 Vercel에 Import하는 순간 Vercel이 그 저장소에 웹훅(webhook)을 등록함. 그래서 `git push`할 때마다 GitHub가 Vercel에 즉시 알림을 보내고, Vercel이 자동으로 최신 코드를 가져와 재배포함(사람이 버튼 누를 필요 없음). n8n 등에서 쓰는 웹훅과 원리가 동일함.
 - **Windows 폴더 아이콘**: 이 프로젝트 폴더 자체의 탐색기 아이콘이 `앱아이콘.ico`로 지정되어 있음 — `desktop.ini`(Hidden+System 속성) + 폴더 자체의 System 속성 조합으로 구현됨. 아이콘을 바꾸면 같은 파일명(`앱아이콘.ico`)에 덮어쓰기만 하면 자동 반영됨(desktop.ini 재작성 불필요). `desktop.ini`/`앱아이콘.png`/`앱아이콘.ico`는 로컬 전용이라 git 추적 안 함.
