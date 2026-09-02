@@ -16,6 +16,8 @@
 - `AGENT_PROMPT.md` — 매주 자동 업데이트 루틴이 그대로 따르는 작업 지시문. **루틴 동작을 바꾸고 싶으면 이 파일을 수정**하면 되고, claude.ai 루틴 설정 자체는 안 건드려도 됨(루틴 프롬프트가 "이 파일을 읽고 따라라"로만 되어 있음)
 - `예약루틴_정보.txt` — 루틴 이름/주기/관리페이지 요약
 - `전시정보_캘린더_작동원리.docx` — 비개발자용 전체 작동원리 설명 문서
+- `api/geocode.js` — 네이버 지역검색 서버 프록시(더보기·지도탭 검색용). Client Secret을 브라우저에 노출 안 시키려고 서버를 거침
+- `api/submit.js` — 더보기 탭 "링크나 텍스트로 추가하기" 처리 로직. 유튜브 링크면 설명란을 가져오고, Claude(Haiku)로 전시 정보를 구조화해서 뽑아낸 다음(전시 기간이 명확히 없으면 그 전시는 통째로 제외), 지오코딩 + 건대입구 기준 대략 이동시간까지 계산해서 GitHub의 `data/exhibitions.json`에 직접 커밋함
 - `클로드 디자인/` — 디자인 handoff 원본·화면 캡처·QA 스크린샷·아이콘 재생성 스크립트(`replace_icons.py`) (git 추적 제외, `.gitignore` 참고)
 - `전시정보 캘린더 앱 디자인/app_icon/` — 디자인팀이 만든 진짜 앱 아이콘 원본 세트(60~1024px, rounded/square 변형 포함). 프로젝트 루트에 있지만 git 추적 제외(`.gitignore`). `icons/`, `앱아이콘.png`, `앱아이콘.ico`는 전부 이 폴더에서 리사이즈해서 만든 것 — **아이콘을 다시 만들 필요가 있으면 이 원본 폴더가 먼저 있는지 확인하고, 있으면 절대 새로 생성하지 말고 여기서 리사이즈만 할 것**(`클로드 디자인/replace_icons.py` 참고)
 
@@ -27,6 +29,20 @@
   - **console.ncloud.com 로그인 계정**: `chiuetchieut.kr@gmail.com` (SNS 연동 로그인) — 개인 네이버 계정과는 다른 별개 계정이라 헷갈리기 쉬움(2026-09-02 확인, 다른 계정으로 로그인 시도했다가 "연동된 아이디가 아닙니다" 에러 겪고 확인함). NCP 콘솔에 로그인이 안 되면 이 계정부터 시도할 것
   - **NAVER API HUB**: 2026년 7월 31일부로 `developers.naver.com`의 예전 검색 API(지역검색 포함) 신규 발급이 막히고, NCP 콘솔의 **All Services > Application Services > NAVER API HUB**로 이전됨(기존 무료 정책 유지 중이나 추후 유료 요금제 도입 예정이라고 공지됨). 지역검색 등 새 네이버 검색 API가 필요하면 이 경로로 신청할 것
 - **claude.ai 예약 루틴**: `exhibit-calendar-weekly-update` (trig_01JgjGn4bmT4rnmZGjqkWdQf), 관리: https://claude.ai/code/routines
+- **NAVER API HUB(지역검색 API)**: Application 이름 `local-eats`(맛집 앱 만들 때 만든 걸 그대로 재사용 — Client ID/Secret 값은 두 앱이 공유). 인증 헤더는 `X-NCP-APIGW-API-KEY-ID`/`X-NCP-APIGW-API-KEY`, 엔드포인트는 `https://naverapihub.apigw.ntruss.com/search/v1/local` (자세한 배경은 위 NAVER API HUB 항목·`[앱]맛집정보 캘린더/메모리.md` 참고)
+- **Anthropic API**: `api/submit.js`에서 전시 정보 추출에 씀(모델: `claude-haiku-4-5-20251001`, 맛집 앱과 같은 키 재사용 가능)
+- **GitHub Personal Access Token**: `api/submit.js`가 `data/exhibitions.json`에 직접 커밋하는 데 씀. **Fine-grained 토큰, `exhibit-calendar-` 저장소에만 스코프 제한**(맛집 앱의 `local-eats` 전용 토큰과는 별개 — 레포별로 각각 발급해야 함)
+
+### Vercel 환경변수 (6개, Settings > Environment Variables)
+
+| Key | 비고 |
+|---|---|
+| `YOUTUBE_API_KEY` | 서버 전용 |
+| `NAVER_SEARCH_CLIENT_ID` | 서버 전용 |
+| `NAVER_SEARCH_CLIENT_SECRET` | 서버 전용 |
+| `ANTHROPIC_API_KEY` | 서버 전용 |
+| `GITHUB_TOKEN` | 서버 전용, `exhibit-calendar-` 저장소 Contents 쓰기 권한만 |
+| `GITHUB_REPO` | `chieutchieutkr-web/exhibit-calendar-` (**끝에 하이픈 포함**, 맛집 앱 값과 헷갈리기 쉬움) |
 
 ## 이 환경에서 반드시 알아야 할 것들
 
@@ -42,7 +58,14 @@
 - **Vercel 자동 재배포 원리**: GitHub 저장소를 Vercel에 Import하는 순간 Vercel이 그 저장소에 웹훅(webhook)을 등록함. 그래서 `git push`할 때마다 GitHub가 Vercel에 즉시 알림을 보내고, Vercel이 자동으로 최신 코드를 가져와 재배포함(사람이 버튼 누를 필요 없음). n8n 등에서 쓰는 웹훅과 원리가 동일함.
 - **Windows 폴더 아이콘**: 이 프로젝트 폴더 자체의 탐색기 아이콘이 `앱아이콘.ico`로 지정되어 있음 — `desktop.ini`(Hidden+System 속성) + 폴더 자체의 System 속성 조합으로 구현됨. 아이콘을 바꾸면 같은 파일명(`앱아이콘.ico`)에 덮어쓰기만 하면 자동 반영됨(desktop.ini 재작성 불필요). `desktop.ini`/`앱아이콘.png`/`앱아이콘.ico`는 로컬 전용이라 git 추적 안 함.
 - **iOS 홈 화면 앱(PWA)에서 위치 권한이 막히는 문제**: `apple-mobile-web-app-capable` 메타태그, manifest의 `scope`/`id` 필드를 다 넣어도 특정 기기에서 여전히 위치 권한 팝업 자체가 안 뜰 수 있음 — 이땐 코드 문제가 아니라 **그 아이폰의 권한 기록이 꼬여있는 것**일 수 있다. 해결법: 아이폰에서 설정 > 일반 > 전송 또는 재설정 > 재설정 > "위치 및 개인정보 보호 재설정" → 재시동 → 홈 화면 앱 재실행. 자세한 경위는 `메모리.md` 참고.
+- **전시 기간이 지나도 `data/exhibitions.json`에서 삭제하지 않음**(2026-09-02 변경, `AGENT_PROMPT.md` 8번 항목): 원래는 자동화가 종료된 전시를 배열에서 지웠는데, 저장(북마크)은 localStorage에 id만 저장하는 구조라 원본 데이터에서 지워지면 저장 목록에서도 조용히 사라지는 문제가 있었음. 캘린더 화면은 날짜 필터링으로 종료된 전시를 알아서 안 보여주므로, 배열에 남겨둬도 화면엔 영향 없음. **이 규칙을 다시 "종료되면 삭제"로 되돌리지 말 것.**
+- **저장 목록의 삭제 버튼**: 카드에 있는 pill을 누르면 삭제되는 구조는 그대로지만, 라벨을 "🗑 삭제"로 명확하게 바꿔둠(`.delete-pill` 클래스). 예전엔 "저장됨 · 종료 D-7 알림"이라고만 써있어서 눌러도 삭제되는 버튼인 줄 모르기 쉬웠음
+- **지도탭의 이동시간 표시 로직**(`pinTimeText()`, app.js): 지도탭(핀 라벨/캐러셀 카드/상세시트)은 검색(`state.origin`)이나 내 위치(`state.myLocation`)가 설정돼 있으면 그 기준 실거리 추정치를 보여주고, 없으면 기존처럼 건대입구 고정값(`ex.transit.text`)을 보여줌. **캘린더 탭의 카드(`makeExCard`)는 건드리지 않고 항상 건대입구 고정값만 표시** — 애초에 "전시제목(장소/건대병원 기준 이동시간/야간개장)" 포맷이 원래 스펙이라 그렇게 뒀음. 검색/내위치 우선순위는 검색이 내 위치보다 우선(`activeRef()` 함수 참고)
+- **지도탭 검색창의 흔한 버그**: 장소를 검색해서 기준점을 잡은 뒤에도 입력창에 글자가 남아있으면, 그 글자가 "이름으로 목록 필터링"에도 동시에 쓰여서 결과가 텅 비어보이는 문제가 있었음(예: "시청역" 검색 후 안 지우면 리스트가 하나도 안 보임) → 검색 성공 시 `state.mapQuery`를 자동으로 비우도록 수정함. 검색 관련 기능을 다시 만질 때 이 상호작용을 주의할 것
+- **`.env`가 한동안 `.gitignore`에 안 걸려있었음**(2026-09-02 발견, 실제로 커밋된 적은 없었음) — 지금은 걸려있음. `.env` 관련 파일을 새로 만들 때는 항상 `.gitignore`에 있는지부터 확인할 것
 
 ## 상위 폴더와의 관계
 
-이 폴더는 `앱/자동화 프로그램`과는 별개 프로젝트지만, 그 폴더의 `자동화 상황판`(claude.ai 아티팩트, `자동화 상황판.url`로 열림)에 이 프로젝트의 예약 루틴도 함께 등록해 표시하고 있습니다. 루틴 상태가 바뀌면(이름 변경, 재생성 등) 그 상황판도 같이 갱신해주는 게 좋습니다.
+이 폴더는 `앱/자동화 프로그램`과는 별개 프로젝트지만, 그 폴더의 `자동화 상황판`(claude.ai 아티팩트, `자동화 상황판.url`로 열림)에 이 프로젝트의 예약 루틴도 함께 등록해 표시하고 있습니다. 루틴 상태가 바뀌면(이름 변경, 재생성 등) 그 상황판도 같이 갱신해주는 게 좋습니다. (2026-09-02 확인: 그 상황판 아티팩트가 현재 계정에서 안 보이게 됨 — 삭제됐거나 예전 계정 소유일 가능성. 필요하면 다시 만들어야 함)
+
+`[앱]맛집정보 캘린더`(로컬잇츠)는 이 프로젝트를 템플릿 삼아 만든 자매 프로젝트입니다. **네이버 지도 SDK 키를 공유**하고(NCP Maps Application `exhibit-calendar`의 Web 서비스 URL 목록에 두 앱 도메인이 다 등록돼 있음), "링크로 추가하기" 서버리스 함수 아키텍처도 거의 동일한 패턴으로 양쪽에 다 구현돼 있습니다(스키마만 다름). 두 프로젝트 계정 정보를 헷갈리지 않도록 주의할 것 — 특히 `GITHUB_REPO`/`GITHUB_TOKEN`은 저장소별로 반드시 따로 설정해야 함.
