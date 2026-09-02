@@ -297,8 +297,17 @@
     return naverMap;
   }
 
+  function pinTimeText(ex) {
+    const ref = activeRef();
+    if (ref && ex.lat != null && ex.lng != null) {
+      const km = haversineKm(ref.lat, ref.lng, ex.lat, ex.lng);
+      return `약 ${estimateMinutesFromDistance(km)}분`;
+    }
+    return ex.transit?.text || '';
+  }
+
   function pinIconHtml(ex, isFocused) {
-    const timeText = escapeHtml(ex.transit?.text?.replace('약 ', '') || '');
+    const timeText = escapeHtml(pinTimeText(ex).replace('약 ', ''));
     const label = isFocused
       ? `<span class="pin-label" style="background:${ex.color};color:#fff;">${escapeHtml(ex.venue)} · ${timeText}</span>`
       : `<span class="pin-label" style="color:${ex.color};">${timeText}</span>`;
@@ -439,7 +448,7 @@
         <div>
           <div class="mc-title">${escapeHtml(ex.title)}</div>
           <div class="mc-addr">${escapeHtml(ex.address)}</div>
-          <div class="mc-time" style="color:${ex.color}">${escapeHtml(ex.transit?.text || '-')}</div>
+          <div class="mc-time" style="color:${ex.color}">${escapeHtml(pinTimeText(ex) || '-')}</div>
           <a class="mc-route" style="background:${ex.colorSoft};color:${ex.color}" href="${naver}" target="_blank" rel="noopener">네이버지도로 길찾기</a>
         </div>`;
       card.addEventListener('click', (e) => {
@@ -547,7 +556,7 @@
       </div>
       <div class="sheet-grid">
         <div class="box"><div class="lbl">관람시간</div><div class="val">${escapeHtml(ex.hours || '-')}${ex.closedDay ? `<br/>휴관 ${escapeHtml(ex.closedDay)}` : ''}</div></div>
-        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(ex.transit?.text || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}</div></div>
+        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(pinTimeText(ex) || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}</div></div>
         ${ex.admission ? `<div class="box admission-box"><div class="lbl">입장료</div><div class="val">${escapeHtml(ex.admission)}</div></div>` : ''}
       </div>
       <p class="sheet-address">📍 ${escapeHtml(ex.address)}</p>
