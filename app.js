@@ -451,7 +451,7 @@
             <div class="ex-meta">${fmtDate(ex.period.start)} – ${fmtDate(ex.period.end)}</div>
             <div class="saved-card-bottom">
               <span class="ex-dday" style="color:${dd.color}">${dd.label}</span>
-              <span class="save-toggle-pill" style="background:${ex.color};color:#fff" data-id="${ex.id}">저장됨 · 종료 D-${REMINDER_DAYS} 알림</span>
+              <span class="save-toggle-pill delete-pill" data-id="${ex.id}">🗑 삭제</span>
             </div>
           </div>
         </button>`;

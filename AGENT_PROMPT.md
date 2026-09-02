@@ -19,7 +19,7 @@
    - 장소의 위도/경도(`lat`/`lng`)도 함께 조사해서 채운다(지도 탭 핀 표시용). 서울 수도권 밖이거나 좌표를 못 찾으면 `null`로 두면 앱이 "지도 밖" 처리한다.
 7. `data/exhibitions.json`의 `exhibitions` 배열에 새 항목을 추가한다. 기존 스키마(각 필드: id, title, artist, venue, address, color, colorSoft, lat, lng, period{start,end}, hours, closedDay, nightOpen{days,time}|null, admission(선택), transit{text,note}, features[], artistIntro, videoHighlights[](선택), video{url,title,channel})를 그대로 따른다.
    - `color`/`colorSoft`: 전시 고유 포인트 컬러(메인/연한 배경). 기존 7색(`#C9426F`/`#3F7F79`/`#D4653A`/`#A8802A`/`#6E4E7E`/`#7C6BC4`/`#3E6FA8`, 각각의 연한 버전)이 이미 다 쓰였으면 새로운 전시색을 하나 골라 추가한다(기존 색과 너무 비슷하지 않게). `imageUrl` 필드는 넣지 않아도 된다 — 앱이 `video.url`에서 유튜브 썸네일을 자동으로 가져온다(품질 낮으면 나중에 수동으로 `imageUrl`을 추가해 덮어쓸 수 있음).
-8. 전시 기간(`period.end`)이 오늘 기준 지난 항목은 배열에서 제거한다.
+8. 전시 기간(`period.end`)이 오늘 기준 지난 항목이어도 배열에서 **제거하지 않는다**. (2026-09-02 변경: 사용자가 "저장"한 전시는 브라우저 localStorage에 id만 저장되는데, 여기서 지워버리면 저장 목록에서도 조용히 사라져버리는 문제가 있었음. 캘린더 화면은 날짜 필터링으로 종료된 전시를 자동으로 안 보여주므로, 배열에 남겨둬도 화면엔 영향 없음.)
 9. 이미 등록된 전시와 제목·장소가 사실상 같으면 새로 추가하지 말고 기존 항목을 갱신(정보 보완)한다.
 10. `data/seen.json`에 이번에 처리한 모든 새 영상 ID를 추가한다(전시로 등록되지 않은 영상도 재검토하지 않도록 반드시 추가).
 11. `exhibitions.json`의 `generatedAt`을 오늘 날짜(YYYY-MM-DD)로 갱신한다.

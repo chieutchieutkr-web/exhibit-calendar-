@@ -8,3 +8,4 @@ node_modules/
 앱아이콘.png
 앱아이콘.ico
 desktop.ini
+.env

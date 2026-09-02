@@ -24,6 +24,8 @@
 - **GitHub**: `chieutchieutkr-web` 계정, 저장소 `exhibit-calendar-` (이름 끝에 하이픈 있음, 오타 아님)
 - **Vercel**: 배포 주소 `https://exhibit-calendar.vercel.app`, GitHub 저장소와 연결되어 push마다 자동 재배포
 - **네이버 클라우드 플랫폼(NCP) Maps**: Application 이름 `exhibit-calendar`, Client ID는 `index.html`의 `<script src="...maps.js?ncpKeyId=...">`에 하드코딩되어 있음(공개돼도 되는 값 — 보안은 NCP의 "Web 서비스 URL" 도메인 화이트리스트가 담당). **배포 도메인이 바뀌면 NCP Application의 Web 서비스 URL에도 그 도메인을 추가해야 지도가 뜸.**
+  - **console.ncloud.com 로그인 계정**: `chiuetchieut.kr@gmail.com` (SNS 연동 로그인) — 개인 네이버 계정과는 다른 별개 계정이라 헷갈리기 쉬움(2026-09-02 확인, 다른 계정으로 로그인 시도했다가 "연동된 아이디가 아닙니다" 에러 겪고 확인함). NCP 콘솔에 로그인이 안 되면 이 계정부터 시도할 것
+  - **NAVER API HUB**: 2026년 7월 31일부로 `developers.naver.com`의 예전 검색 API(지역검색 포함) 신규 발급이 막히고, NCP 콘솔의 **All Services > Application Services > NAVER API HUB**로 이전됨(기존 무료 정책 유지 중이나 추후 유료 요금제 도입 예정이라고 공지됨). 지역검색 등 새 네이버 검색 API가 필요하면 이 경로로 신청할 것
 - **claude.ai 예약 루틴**: `exhibit-calendar-weekly-update` (trig_01JgjGn4bmT4rnmZGjqkWdQf), 관리: https://claude.ai/code/routines
 
 ## 이 환경에서 반드시 알아야 할 것들
