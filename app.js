@@ -16,6 +16,8 @@
     mapBoundsFitted: false,
     myLocation: null,  // { lat, lng } — "내 위치" 버튼으로 얻은 실제 현재 위치
     locating: false,
+    searchOrigin: null, // { lat, lng, label } — 지도 검색창에서 지정한 임의 기준 위치(내 위치보다 우선)
+    searching: false,
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -65,11 +67,17 @@
     const raw = 12 + (km / 17) * 60; // 기본 도보/환승 여유 12분 + 평균 이동속도 17km/h 가정
     return Math.max(5, Math.round(raw / 5) * 5);
   }
+  function activeRef() {
+    if (state.searchOrigin) return { ...state.searchOrigin, kind: state.searchOrigin.label };
+    if (state.myLocation) return { ...state.myLocation, kind: '내 위치' };
+    return null;
+  }
   function myLocationEstimateHtml(ex, sep = '<br/>') {
-    if (!state.myLocation || ex.lat == null || ex.lng == null) return '';
-    const km = haversineKm(state.myLocation.lat, state.myLocation.lng, ex.lat, ex.lng);
+    const ref = activeRef();
+    if (!ref || ex.lat == null || ex.lng == null) return '';
+    const km = haversineKm(ref.lat, ref.lng, ex.lat, ex.lng);
     const mins = estimateMinutesFromDistance(km);
-    return `${sep}내 위치 기준 약 ${mins}분(직선거리 추정)`;
+    return `${sep}${escapeHtml(ref.kind)} 기준 약 ${mins}분(직선거리 추정)`;
   }
 
   function parseTransitMinutes(text) {
@@ -206,7 +214,37 @@
   let naverMap = null;
   let naverOriginMarker = null;
   let naverMyLocationMarker = null;
+  let naverSearchMarker = null;
   let naverMarkers = []; // { id, marker }
+
+  function recenterMap(lat, lng, zoom = 13) {
+    const map = ensureNaverMap();
+    if (!map) return;
+    map.setCenter(new naver.maps.LatLng(lat, lng));
+    map.setZoom(zoom);
+  }
+
+  // 검색창에 지역/장소를 입력하면 그 지점을 기준으로 재설정(서버의 /api/geocode 프록시 사용)
+  async function searchPlace(q) {
+    if (!q.trim() || state.searching) return;
+    const status = $('#locateStatus');
+    state.searching = true;
+    status.hidden = false;
+    status.textContent = `"${q}" 검색 중…`;
+    try {
+      const res = await fetch('/api/geocode?q=' + encodeURIComponent(q));
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || '검색 실패');
+      state.searchOrigin = { lat: json.lat, lng: json.lng, label: json.label };
+      status.textContent = `"${json.label}" 기준으로 이동시간을 표시할게요 (직선거리 추정치)`;
+      renderMapTab();
+      recenterMap(json.lat, json.lng, 14);
+    } catch (e) {
+      status.textContent = e.message.includes('fetch') ? '검색 기능은 배포된 사이트에서만 동작해요 (로컬 미리보기에서는 지원 안 함)' : ('검색 실패: ' + e.message);
+    } finally {
+      state.searching = false;
+    }
+  }
 
   function locateMe() {
     const btn = $('#locateBtn');
@@ -311,6 +349,15 @@
           zIndex: 60,
         });
       }
+    }
+
+    if (state.searchOrigin) {
+      const pos = new naver.maps.LatLng(state.searchOrigin.lat, state.searchOrigin.lng);
+      const content = `<div class="origin-content"><span class="origin-dot" style="background:var(--brand)"></span><span class="origin-label" style="background:var(--brand)">검색: ${escapeHtml(state.searchOrigin.label)}</span></div>`;
+      if (naverSearchMarker) { naverSearchMarker.setPosition(pos); naverSearchMarker.setIcon({ content, anchor: new naver.maps.Point(7, 7) }); naverSearchMarker.setMap(map); }
+      else naverSearchMarker = new naver.maps.Marker({ map, position: pos, icon: { content, anchor: new naver.maps.Point(7, 7) }, zIndex: 55 });
+    } else if (naverSearchMarker) {
+      naverSearchMarker.setMap(null);
     }
 
     // 기존 마커 제거 후 새로 그림(전시 수가 적어 성능상 문제 없음)
@@ -523,6 +570,34 @@
     renderMapCarousel();
   });
   $('#locateBtn').addEventListener('click', locateMe);
+  $('#mapSearchInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') searchPlace(e.target.value); });
+  $('.map-search-box .search-dot').addEventListener('click', () => searchPlace($('#mapSearchInput').value));
+
+  // ---------- 더보기: 링크/텍스트로 추가 ----------
+  $('#submitBtn')?.addEventListener('click', async () => {
+    const input = $('#submitInput');
+    const status = $('#submitStatus');
+    const val = input.value.trim();
+    if (!val) return;
+    $('#submitBtn').disabled = true;
+    status.hidden = false;
+    status.textContent = '분석 중이에요… (몇 초 걸릴 수 있어요)';
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ input: val }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || '처리 실패');
+      status.textContent = json.message || `${(json.added || []).length}건 추가됐어요`;
+      if (json.added?.length) input.value = '';
+    } catch (e) {
+      status.textContent = e.message.includes('fetch') ? '이 기능은 배포된 사이트에서만 동작해요 (로컬 미리보기에서는 지원 안 함)' : ('오류: ' + e.message);
+    } finally {
+      $('#submitBtn').disabled = false;
+    }
+  });
 
   (async function init() {
     state.sel = todayISO();

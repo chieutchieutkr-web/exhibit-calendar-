@@ -113,7 +113,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 }
 .map-search-box input { border: none; background: none; outline: none; font-size: 13px; font-weight: 600; color: var(--ink); width: 100%; font-family: inherit; }
 .map-search-box input::placeholder { color: var(--ink-soft); }
-.search-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink-soft); flex: 0 0 auto; }
+.search-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink-soft); flex: 0 0 auto; cursor: pointer; }
 .map-filter-btn {
   width: 44px; height: 44px; border-radius: 14px; background: rgba(255, 255, 255, .95);
   box-shadow: 0 3px 14px rgba(40, 20, 50, .12); border: none; font-size: 11px; font-weight: 600; color: var(--ink-soft); cursor: pointer; font-family: inherit;
@@ -195,6 +195,17 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 .more-row span:first-child { font-size: 13.5px; font-weight: 700; color: var(--ink); }
 .more-row span:last-child { font-size: 13px; font-weight: 500; color: var(--ink-soft2); }
 .more-footnote { font-size: 11px; font-weight: 500; line-height: 1.7; color: var(--ink-soft2); padding: 16px 22px 0; }
+
+.submit-box { margin: 14px 22px 0; background: var(--card); border-radius: 18px; padding: 16px; }
+.submit-label { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.submit-desc { font-size: 11.5px; font-weight: 500; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+.submit-textarea {
+  width: 100%; min-height: 84px; border-radius: 12px; border: 1px solid var(--line3); background: var(--field-bg);
+  padding: 10px 12px; font-size: 12.5px; font-family: inherit; color: var(--ink); resize: vertical; margin-bottom: 10px;
+}
+.submit-textarea::placeholder { color: var(--ink-soft2); }
+.submit-cta { background: var(--brand); margin-bottom: 0; }
+.submit-status { font-size: 11.5px; font-weight: 600; color: var(--ink-soft); margin: 10px 0 0; line-height: 1.6; }
 
 /* ---- 전시 상세 바텀시트 ---- */
 .sheet-overlay { position: fixed; inset: 0; background: rgba(30, 20, 35, .45); display: flex; align-items: flex-end; z-index: 50; }
