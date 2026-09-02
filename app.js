@@ -236,6 +236,7 @@
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || '검색 실패');
       state.searchOrigin = { lat: json.lat, lng: json.lng, label: json.label };
+      state.mapQuery = ''; // 검색창 글자가 이름 필터로도 쓰이던 것 때문에 결과가 안 보이던 문제 방지
       status.textContent = `"${json.label}" 기준으로 이동시간을 표시할게요 (직선거리 추정치)`;
       renderMapTab();
       recenterMap(json.lat, json.lng, 14);
@@ -410,8 +411,20 @@
     }
 
     let list = state.exhibitions.filter((ex) => matchesQuery(ex, state.mapQuery));
-    if (state.mapSort === 'name') list = list.slice().sort((a, b) => a.title.localeCompare(b.title, 'ko'));
-    else list = list.slice().sort((a, b) => parseTransitMinutes(a.transit?.text) - parseTransitMinutes(b.transit?.text));
+    const ref = activeRef();
+    if (state.mapSort === 'name') {
+      list = list.slice().sort((a, b) => a.title.localeCompare(b.title, 'ko'));
+    } else if (ref) {
+      // 검색한 위치/내 위치가 있으면 그 기준 실제 거리순으로 (건대입구 고정 데이터보다 우선)
+      list = list.slice().sort((a, b) => {
+        const da = (a.lat != null && a.lng != null) ? haversineKm(ref.lat, ref.lng, a.lat, a.lng) : Infinity;
+        const db = (b.lat != null && b.lng != null) ? haversineKm(ref.lat, ref.lng, b.lat, b.lng) : Infinity;
+        return da - db;
+      });
+    } else {
+      list = list.slice().sort((a, b) => parseTransitMinutes(a.transit?.text) - parseTransitMinutes(b.transit?.text));
+    }
+    $('#carouselModeLabel').textContent = ref ? `${ref.kind} 가까운 순` : '이동시간 가까운 순';
 
     const wrap = $('#mapCarousel');
     wrap.innerHTML = '';
@@ -426,7 +439,7 @@
         <div>
           <div class="mc-title">${escapeHtml(ex.title)}</div>
           <div class="mc-addr">${escapeHtml(ex.address)}</div>
-          <div class="mc-time" style="color:${ex.color}">${escapeHtml(ex.transit?.text || '-')}${myLocationEstimateHtml(ex, ' · ')}</div>
+          <div class="mc-time" style="color:${ex.color}">${escapeHtml(ex.transit?.text || '-')}</div>
           <a class="mc-route" style="background:${ex.colorSoft};color:${ex.color}" href="${naver}" target="_blank" rel="noopener">네이버지도로 길찾기</a>
         </div>`;
       card.addEventListener('click', (e) => {
@@ -534,7 +547,7 @@
       </div>
       <div class="sheet-grid">
         <div class="box"><div class="lbl">관람시간</div><div class="val">${escapeHtml(ex.hours || '-')}${ex.closedDay ? `<br/>휴관 ${escapeHtml(ex.closedDay)}` : ''}</div></div>
-        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(ex.transit?.text || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}${myLocationEstimateHtml(ex)}</div></div>
+        <div class="box"><div class="lbl">이동시간</div><div class="val">${escapeHtml(ex.transit?.text || '-')}${nightLabel(ex) ? `<br/>야간 ${escapeHtml(nightLabel(ex))}` : ''}</div></div>
         ${ex.admission ? `<div class="box admission-box"><div class="lbl">입장료</div><div class="val">${escapeHtml(ex.admission)}</div></div>` : ''}
       </div>
       <p class="sheet-address">📍 ${escapeHtml(ex.address)}</p>
@@ -546,6 +559,7 @@
         ${ex.video.title ? `<div class="sheet-video-title">${escapeHtml(ex.video.title)}</div>` : ''}
         <a class="sheet-cta" style="background:${ex.color}" href="${ex.video.url}" target="_blank" rel="noopener">▶ 소개 영상 보기</a>
       </div>` : ''}
+      <a class="sheet-cta secondary" href="${naverDirectionsUrl(ex)}" target="_blank" rel="noopener">네이버지도로 길찾기</a>
     `;
     $('#sheetSaveBtn').addEventListener('click', () => toggleSave(id));
     $('#detailSheet').hidden = false;
