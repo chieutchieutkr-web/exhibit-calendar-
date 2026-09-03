@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-25",
+  "generatedAt": "2026-09-02",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
-    "lng": 127.0700
+    "lng": 127.07
   },
   "exhibitions": [
     {
@@ -15,13 +15,19 @@
       "color": "#C9426F",
       "colorSoft": "#FCE9F0",
       "lat": 37.5705,
-      "lng": 126.9760,
-      "period": { "start": "2026-08-13", "end": "2026-12-27" },
+      "lng": 126.976,
+      "period": {
+        "start": "2026-08-13",
+        "end": "2026-12-27"
+      },
       "hours": "10:00 ~ 18:00 (요일별 마감시간 상이할 수 있음, 방문 전 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
       "admission": "성인 15,000원 · 청소년/대학(원)생 10,000원 · 65세 이상 7,500원 (시기별 얼리버드 할인 있었음)",
-      "transit": { "text": "약 25분", "note": "지하철 2호선 건대입구 → 동대문역사문화공원 환승 → 5호선 광화문역, 도보 포함 추정치" },
+      "transit": {
+        "text": "약 25분",
+        "note": "지하철 2호선 건대입구 → 동대문역사문화공원 환승 → 5호선 광화문역, 도보 포함 추정치"
+      },
       "features": [
         "타계(2026) 후 첫 미술관 회고전이자 생전 마지막으로 구상한 전시",
         "국내 개인전 약 20년 만, 총 46점 중 39점 국내 최초 공개"
@@ -34,7 +40,11 @@
         "동선 끝의 22분짜리 생전 마지막 인터뷰 영상"
       ],
       "artistIntro": "1938년 독일(현 작센) 출생. 1969년부터 캔버스를 뒤집어 그리는 독창적 화법으로 세계적 거장이 된 신표현주의 화가. 전쟁의 폐허 속에서 자란 개인사와 '이야기를 지우고 회화만 남긴다'는 예술관으로 잘 알려져 있다. 2026년 타계.",
-      "video": { "url": "https://www.youtube.com/watch?v=OH7HZow3dAU", "title": "📌광화문 화제의 전시, 이 전시가 왜 서울에? 세상을 거꾸로 그린 화가, 그 마지막이 서울에 있다", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=OH7HZow3dAU",
+        "title": "📌광화문 화제의 전시, 이 전시가 왜 서울에? 세상을 거꾸로 그린 화가, 그 마지막이 서울에 있다",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "dohosuh-mmca-2026",
@@ -44,14 +54,23 @@
       "address": "서울 종로구 삼청로 30",
       "color": "#7C6BC4",
       "colorSoft": "#EDE9FB",
-      "lat": 37.5790,
-      "lng": 126.9800,
-      "period": { "start": "2026-08-27", "end": "2027-02-09" },
+      "lat": 37.579,
+      "lng": 126.98,
+      "period": {
+        "start": "2026-08-27",
+        "end": "2027-02-09"
+      },
       "hours": "10:00 ~ 18:00 (1시간 단위 회차 예약제, 매표는 마감 1시간 전까지)",
       "closedDay": "매주 월요일",
-      "nightOpen": { "days": "수토", "time": "21:00" },
+      "nightOpen": {
+        "days": "수토",
+        "time": "21:00"
+      },
       "admission": "성인 8,000원 (~8/26 얼리버드 6,400원, 국현 홈페이지 예매 시 상시 10% 할인)",
-      "transit": { "text": "약 30분", "note": "지하철 2호선 건대입구 → 동대문역사문화공원/종로3가 환승 → 3호선 안국역, 도보 포함 추정치" },
+      "transit": {
+        "text": "약 30분",
+        "note": "지하철 2호선 건대입구 → 동대문역사문화공원/종로3가 환승 → 3호선 안국역, 도보 포함 추정치"
+      },
       "features": [
         "서도호 사상 최대 규모 개인전, 학생 시절 초기작부터 최신작까지 전작 조망",
         "회차별 예약 필수, 얼리버드 예매 시 할인",
@@ -62,7 +81,11 @@
         "왜 천인가 — 이미 떠나온 집들이라 남은 건 기억뿐. 속이 비쳐 있는 듯 없는 듯하고 만지면 흔들리는 천이 상실과 부재를 다루기에 적합한 재료"
       ],
       "artistIntro": "설치미술가. 자신이 실제로 살았던 공간을 반투명한 천으로 실물 크기 재현하는 작업으로 유명하며, 상실·기억·이주의 경험을 다룬다. 국내외 주요 미술관에서 활발히 활동 중인 한국 대표 현대미술가.",
-      "video": { "url": "https://www.youtube.com/watch?v=-Pw4NFsr0hM", "title": "이 전시, 얼마나 흥행할지 감도 안 옵니다 🔥 다음 주 27일 개막하는 국립현대미술관 《서도호》", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=-Pw4NFsr0hM",
+        "title": "이 전시, 얼마나 흥행할지 감도 안 옵니다 🔥 다음 주 27일 개막하는 국립현대미술관 《서도호》",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "parkseobo-museum-2026",
@@ -72,14 +95,20 @@
       "address": "서울 서대문구 연희동",
       "color": "#6E4E7E",
       "colorSoft": "#F1E9F5",
-      "lat": 37.5680,
-      "lng": 126.9280,
-      "period": { "start": "2026-08-21", "end": "2027-01-03" },
+      "lat": 37.568,
+      "lng": 126.928,
+      "period": {
+        "start": "2026-08-21",
+        "end": "2027-01-03"
+      },
       "hours": "11:00 ~ 18:00",
       "closedDay": "매주 월요일",
       "nightOpen": null,
       "admission": "성인 5,000원",
-      "transit": { "text": "약 50분", "note": "지하철 2호선 건대입구 → 홍대입구 환승 후 버스/도보, 추정치(정확한 경로는 재확인 권장)" },
+      "transit": {
+        "text": "약 50분",
+        "note": "지하철 2호선 건대입구 → 홍대입구 환승 후 버스/도보, 추정치(정확한 경로는 재확인 권장)"
+      },
       "features": [
         "박서보 생전 작업실 옆, 유가족이 완성한 개관 미술관",
         "개관전: 박서보 '묘법' 연작(1990년대~2023년 유작)과 흐엉 도딘 회화 42점",
@@ -90,7 +119,11 @@
         "시기별 변화 — 캔버스 물감 위 긋기(1967~) → 한지 묘법(1980년대~) → 도구로 밀어낸 고랑(1990년대~) → 색채 묘법(2000년대~) → 백색 묘법까지"
       ],
       "artistIntro": "박서보는 한국 단색화(모노크롬)를 대표하는 작가로, 캔버스에 선을 반복해서 긋고 밀어내는 '묘법(描法)' 연작으로 잘 알려져 있다. 흐엉 도딘은 베트남 출신 프랑스 작가로 광물 안료를 겹겹이 쌓아 빛을 표현하는 회화로 주목받는다.",
-      "video": { "url": "https://www.youtube.com/watch?v=gAQeYlpJpgc", "title": "드디어 오픈! 박서보미술관, 여긴 꼭 가보세요.", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=gAQeYlpJpgc",
+        "title": "드디어 오픈! 박서보미술관, 여긴 꼭 가보세요.",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "kaws-spacek-2026",
@@ -100,21 +133,31 @@
       "address": "서울 강서구 마곡중앙8로 32",
       "color": "#D4653A",
       "colorSoft": "#FCEDE5",
-      "lat": 37.5610,
-      "lng": 126.8290,
-      "period": { "start": "2026-07-23", "end": "2026-12-27" },
+      "lat": 37.561,
+      "lng": 126.829,
+      "period": {
+        "start": "2026-07-23",
+        "end": "2026-12-27"
+      },
       "hours": "도슨트 평일 14:00 / 주말 11:00, 14:00, 16:00",
       "closedDay": "",
       "nightOpen": null,
       "admission": "성인 8,000원 · 청소년 5,000원 · 어린이(3~6세) 3,000원 · 3세 미만 무료 (예술인패스/강서구민/장애인/국가유공자 20% 할인)",
-      "transit": { "text": "약 55분", "note": "지하철 2호선 건대입구 → 5호선 환승 → 마곡나루역, 도보 포함 추정치" },
+      "transit": {
+        "text": "약 55분",
+        "note": "지하철 2호선 건대입구 → 5호선 환승 → 마곡나루역, 도보 포함 추정치"
+      },
       "features": [
         "카우스 국내 최초 미술관 개인전",
         "선착순 스티커 증정 등 현장 이벤트 진행(시기 한정)",
         "스트리트 아트에서 출발해 세계적 컬렉터블 아티스트로 성장한 대표작 다수 전시"
       ],
       "artistIntro": "브라이언 도넬리(예명 KAWS). 그래피티·스트리트 아트에서 출발해 피규어 '컴패니언' 시리즈와 회화로 전 세계 대중문화·미술계에 큰 영향을 준 미국 작가.",
-      "video": { "url": "https://www.youtube.com/watch?v=rLBC3j8fH6k", "title": "\"뉴욕부터 파리까지\" 전세계 도시를 뒤집은 천재 예술가가 왔습니다🔥", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=rLBC3j8fH6k",
+        "title": "\"뉴욕부터 파리까지\" 전세계 도시를 뒤집은 천재 예술가가 왔습니다🔥",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "annyeong-muho-2026",
@@ -126,19 +169,29 @@
       "colorSoft": "#E6F2F0",
       "lat": null,
       "lng": null,
-      "period": { "start": "2026-07-02", "end": "2026-09-27" },
+      "period": {
+        "start": "2026-07-02",
+        "end": "2026-09-27"
+      },
       "hours": "10:00 ~ 18:00, 연중무휴",
       "closedDay": "없음",
       "nightOpen": null,
       "admission": "성인 3,000원 · 18세 미만 1,000원 · 7세 미만 무료 (뮤지엄호두 기본 요금 기준, 전시별로 다를 수 있어 방문 전 확인 권장)",
-      "transit": { "text": "약 1시간 40분~2시간", "note": "수도권 외 지역. 지하철+시외버스 조합, 대략적 추정치" },
+      "transit": {
+        "text": "약 1시간 40분~2시간",
+        "note": "수도권 외 지역. 지하철+시외버스 조합, 대략적 추정치"
+      },
       "features": [
         "뮤지엄호두 x 시스터후드 협력기획전",
         "십장생·산수화 등 전통 도상을 현대작가 6인이 재해석",
         "회화·조각·설치 등 50여 점 전시"
       ],
       "artistIntro": "전통 도상(길상 문양·민화적 상징)을 현대적 감각으로 재해석하는 현대작가 6인의 그룹전.",
-      "video": { "url": "https://www.youtube.com/watch?v=MnDjCynXmIY", "title": "미쳐버린 요즘 한국 예술 근황 ㄷㄷ", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=MnDjCynXmIY",
+        "title": "미쳐버린 요즘 한국 예술 근황 ㄷㄷ",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "alldrawing-gcc-2026",
@@ -150,12 +203,18 @@
       "colorSoft": "#F7EFDD",
       "lat": null,
       "lng": null,
-      "period": { "start": "2026-07-24", "end": "2026-09-06" },
+      "period": {
+        "start": "2026-07-24",
+        "end": "2026-09-06"
+      },
       "hours": "정보 확인 중 (방문 전 경기창작캠퍼스 채널/SNS 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
       "admission": "무료",
-      "transit": { "text": "약 2시간", "note": "수도권 외곽(대부도). 지하철+버스 조합, 대략적 추정치" },
+      "transit": {
+        "text": "약 2시간",
+        "note": "수도권 외곽(대부도). 지하철+버스 조합, 대략적 추정치"
+      },
       "features": [
         "'드로잉은 보이지 않는 아이디어를 드러내는 생각의 흔적' 슬로건",
         "재료·주제·방식이 다른 다양한 드로잉 작품 전시",
@@ -163,7 +222,11 @@
         "경기문화재단 경기창작캠퍼스 x 아터테인 기획"
       ],
       "artistIntro": "강석문 외 102인의 작가가 참여한 대규모 드로잉 그룹전.",
-      "video": { "url": "https://www.youtube.com/watch?v=Mvfzk_wyV9s", "title": "미친 그림체 ✍️ 한국의 천재 작가들 다 모아버린 전시가 열렸습니다", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=Mvfzk_wyV9s",
+        "title": "미친 그림체 ✍️ 한국의 천재 작가들 다 모아버린 전시가 열렸습니다",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "youthcamp-arterrain-2026",
@@ -173,19 +236,29 @@
       "address": "서울 서대문구 홍연길 63-4",
       "color": "#3E6FA8",
       "colorSoft": "#E8F0F9",
-      "lat": 37.5900,
-      "lng": 126.9440,
-      "period": { "start": "2026-08-27", "end": "2026-09-27" },
+      "lat": 37.59,
+      "lng": 126.944,
+      "period": {
+        "start": "2026-08-27",
+        "end": "2026-09-27"
+      },
       "hours": "정보 확인 중 (방문 전 아터테인 채널/SNS 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 45분", "note": "지하철 2·7호선 건대입구 → 3호선 환승 → 홍제역, 도보/버스 포함 추정치" },
+      "transit": {
+        "text": "약 45분",
+        "note": "지하철 2·7호선 건대입구 → 3호선 환승 → 홍제역, 도보/버스 포함 추정치"
+      },
       "features": [
         "가지각색 개성의 청년작가 25인, 작품 55점",
         "미술을 잘 몰라도 편하게 즐길 수 있는 그룹전 구성"
       ],
       "artistIntro": "각자의 세계를 만들어가는 국내 청년작가 25인의 그룹전.",
-      "video": { "url": "https://www.youtube.com/watch?v=bkLMfbnPRJM", "title": "지금 절대 놓쳐선 안될 미친 색감 전시🌈", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=bkLMfbnPRJM",
+        "title": "지금 절대 놓쳐선 안될 미친 색감 전시🌈",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "leedaewon-deoksugung-2026",
@@ -197,18 +270,31 @@
       "colorSoft": "#F9E1E7",
       "lat": 37.5658,
       "lng": 126.9751,
-      "period": { "start": "2026-08-06", "end": "2026-11-08" },
+      "period": {
+        "start": "2026-08-06",
+        "end": "2026-11-08"
+      },
       "hours": "화·목·금·일 10:00~18:00, 수·토 야간개장 10:00~21:00 (9/8, 12/1 임시휴관)",
       "closedDay": "",
-      "nightOpen": { "days": "수토", "time": "21:00" },
+      "nightOpen": {
+        "days": "수토",
+        "time": "21:00"
+      },
       "admission": "2,000원 + 덕수궁 입장료 1,000원 별도 (수·토 야간 18:00~21:00 무료, 24세 이하·65세 이상·대학생 등 무료)",
-      "transit": { "text": "약 50분", "note": "건대입구 기준, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 50분",
+        "note": "건대입구 기준, 지하철 환승 포함 추정치"
+      },
       "features": [
         "한국 근현대 서양화가 이대원(1921–2005)의 회고전",
         "덕수궁 야외 정원과 어우러지는 색채 풍경화 다수 전시"
       ],
       "artistIntro": "한국 근현대 서양화의 대표 작가 중 한 명으로, 자연·과수원 풍경을 원색의 점묘로 그린 화면으로 잘 알려져 있다. 홍익대 미대 학장을 지냈다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "esdevlin-futuraseoul-2026",
@@ -220,18 +306,28 @@
       "colorSoft": "#E1EDF2",
       "lat": 37.5824,
       "lng": 126.9837,
-      "period": { "start": "2026-08-20", "end": "2027-01-17" },
+      "period": {
+        "start": "2026-08-20",
+        "end": "2027-01-17"
+      },
       "hours": "정확한 운영시간은 푸투라서울 홈페이지 확인 필요",
       "closedDay": "",
       "nightOpen": null,
       "admission": "22,000원 (얼리버드 17,600원, ~8/19 판매분에 한함)",
-      "transit": { "text": "약 30분", "note": "건대입구 기준, 북촌 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 30분",
+        "note": "건대입구 기준, 북촌 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "런던 올림픽 개막식·비욘세 무대 등을 연출한 세계적 무대미술가 에스 데블린의 국내 첫 개인전",
         "거울과 공간을 활용한 대형 설치 작업 중심"
       ],
       "artistIntro": "영국 출신 무대·설치 미술가. 런던 올림픽 개막식, 비욘세·아델 등의 공연 무대 디자인으로 유명하며, 최근에는 미술관 단위의 대형 설치 작업으로 영역을 넓히고 있다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "yooyounkuk-sema-2026",
@@ -243,17 +339,28 @@
       "colorSoft": "#EAF1E2",
       "lat": 37.5645,
       "lng": 126.9744,
-      "period": { "start": "2026-06-01", "end": "2026-10-25", "startApprox": true },
+      "period": {
+        "start": "2026-06-01",
+        "end": "2026-10-25",
+        "startApprox": true
+      },
       "hours": "화~금 10:00~20:00 / 토·일·공휴일 10:00~19:00(하절기)",
       "closedDay": "매주 월요일",
       "nightOpen": null,
       "admission": "무료",
-      "transit": { "text": "약 45분", "note": "건대입구 기준, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 45분",
+        "note": "건대입구 기준, 지하철 환승 포함 추정치"
+      },
       "features": [
         "한국 추상미술 1세대 유영국의 산·자연을 소재로 한 색면 추상 회화"
       ],
       "artistIntro": "한국 1세대 추상화가. 산과 자연을 기하학적 색면으로 단순화한 화면으로 잘 알려져 있으며, 평생 '산'을 주제로 독자적인 추상 언어를 구축했다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "martinparr-sema-photo-2026",
@@ -263,20 +370,30 @@
       "address": "서울 도봉구 마들로13길 68",
       "color": "#7A6A4E",
       "colorSoft": "#F0EBE0",
-      "lat": 37.6530,
+      "lat": 37.653,
       "lng": 127.0473,
-      "period": { "start": "2026-07-16", "end": "2026-10-18" },
+      "period": {
+        "start": "2026-07-16",
+        "end": "2026-10-18"
+      },
       "hours": "화~금 10:00~20:00 / 토·일·공휴일 10:00~19:00(하절기, 11~2월은 ~18:00)",
       "closedDay": "매주 월요일 (월요일이 공휴일이면 정상 개관), 1/1",
       "nightOpen": null,
       "admission": "무료",
-      "transit": { "text": "약 40분", "note": "건대입구 기준, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 40분",
+        "note": "건대입구 기준, 지하철 환승 포함 추정치"
+      },
       "features": [
         "영국의 다큐멘터리 사진 거장 마틴 파의 대규모 회고전",
         "2026년 개관한 국내 최초 공립 사진전문미술관에서 열림"
       ],
       "artistIntro": "영국을 대표하는 다큐멘터리 사진작가. 유머러스하면서도 날카로운 시선으로 현대 소비사회와 계급, 여가문화를 포착해온 것으로 유명하다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "joheun-groundseesaw-east-2026",
@@ -288,17 +405,27 @@
       "colorSoft": "#F3EAE0",
       "lat": 37.5487,
       "lng": 127.1015,
-      "period": { "start": "2026-07-17", "end": "2026-11-29" },
+      "period": {
+        "start": "2026-07-17",
+        "end": "2026-11-29"
+      },
       "hours": "정보 확인 중 (방문 전 그라운드시소 채널/SNS 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 15분", "note": "건대입구 기준, 광진구 아차산로 인근, 도보/버스 포함 추정치" },
+      "transit": {
+        "text": "약 15분",
+        "note": "건대입구 기준, 광진구 아차산로 인근, 도보/버스 포함 추정치"
+      },
       "features": [
         "한지·먹 위에 아크릴·과슈를 더한 독창적 화풍의 '요즘 한국화'",
         "같은 공간에서 이기훈 작가의 《내일의 낙원》도 함께 전시 중"
       ],
       "artistIntro": "전통 재료인 한지와 먹 위에 아크릴, 과슈 등 현대적 물감을 더해 사람·자연·도시가 어우러진 화면을 그리는 작가.",
-      "video": { "url": "https://www.youtube.com/watch?v=QpT5wiCH9uA", "title": "지금까지 이런 한국화는 없었다.. 지금 서울에 등장한 '미친 색감 한국화' 전시 리뷰 ㄷㄷ", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=QpT5wiCH9uA",
+        "title": "지금까지 이런 한국화는 없었다.. 지금 서울에 등장한 '미친 색감 한국화' 전시 리뷰 ㄷㄷ",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "michelhenry-busan-2026",
@@ -310,17 +437,27 @@
       "colorSoft": "#F5E5EF",
       "lat": null,
       "lng": null,
-      "period": { "start": "2026-07-03", "end": "2026-10-25" },
+      "period": {
+        "start": "2026-07-03",
+        "end": "2026-10-25"
+      },
       "hours": "도슨트 — 7~8월 매일 11:00·14:00·16:00 / 9~10월 평일 11:00·16:00, 주말 11:00·14:00·16:00 (월요일 도슨트 없음)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 3시간", "note": "수도권 외 지역(부산). KTX+지하철 조합, 대략적 추정치" },
+      "transit": {
+        "text": "약 3시간",
+        "note": "수도권 외 지역(부산). KTX+지하철 조합, 대략적 추정치"
+      },
       "features": [
         "'세상에서 가장 아름다운 색은 꽃에서 나온다'는 철학의 프랑스 화가, 미셸 앙리 최대 규모 회고전",
         "원화 120여 점 전시"
       ],
       "artistIntro": "프랑스의 색채 화가. 평생 꽃을 소재로 밝고 화사한 색면 회화를 그려왔으며, 훈장을 받을 만큼 프랑스 국내에서도 색채 표현으로 정평이 나 있다.",
-      "video": { "url": "https://www.youtube.com/watch?v=Nd_rEzYqOq8", "title": "지금 한국에 등장한 미친 색감 전시🌹 꽃 그림으로 전세계를 사로잡은 화가가 지금 한국에 왔습니다 ㄷㄷ", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=Nd_rEzYqOq8",
+        "title": "지금 한국에 등장한 미친 색감 전시🌹 꽃 그림으로 전세계를 사로잡은 화가가 지금 한국에 왔습니다 ㄷㄷ",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "ultra-department-piac-2026",
@@ -332,17 +469,27 @@
       "colorSoft": "#E3ECF1",
       "lat": null,
       "lng": null,
-      "period": { "start": "2026-07-17", "end": "2026-11-01" },
+      "period": {
+        "start": "2026-07-17",
+        "end": "2026-11-01"
+      },
       "hours": "정보 확인 중 (방문 전 피아크 채널/SNS 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 3시간", "note": "수도권 외 지역(부산). KTX+지하철 조합, 대략적 추정치" },
+      "transit": {
+        "text": "약 3시간",
+        "note": "수도권 외 지역(부산). KTX+지하철 조합, 대략적 추정치"
+      },
       "features": [
         "물건 대신 70여 팀 크리에이터의 생각·문장·취향을 '쇼핑'하는 국내 최초 백화점형 전시",
         "서울에서 10만 명이 방문한 화제의 전시가 부산으로 확장"
       ],
       "artistIntro": "70여 팀의 다양한 크리에이터가 참여한 텍스트·아이디어 기반 그룹 기획전.",
-      "video": { "url": "https://www.youtube.com/watch?v=EYWJzPPnsVc", "title": "지금 SNS서 난리난 초대형 '취향 탐험' 전시 ㄷㄷ", "channel": "널위한문화예술" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=EYWJzPPnsVc",
+        "title": "지금 SNS서 난리난 초대형 '취향 탐험' 전시 ㄷㄷ",
+        "channel": "널위한문화예술"
+      }
     },
     {
       "id": "woosoonok-sungkok-2026",
@@ -354,19 +501,29 @@
       "colorSoft": "#EDE3D8",
       "lat": 37.5726,
       "lng": 126.9691,
-      "period": { "start": "2026-08-12", "end": "2026-10-03" },
+      "period": {
+        "start": "2026-08-12",
+        "end": "2026-10-03"
+      },
       "hours": "10:00~18:00",
       "closedDay": "매주 월요일",
       "nightOpen": null,
       "admission": "성인 7,000원 · 학생 5,000원 · 초등학생 이하 무료",
-      "transit": { "text": "약 30분", "note": "건대입구 기준, 광화문·경희궁 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 30분",
+        "note": "건대입구 기준, 광화문·경희궁 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "2023년 작고 후 처음 열리는 우순옥 첫 회고전, 동생이 함께 기획",
         "연기·녹·빛·오래된 사물 등 일상 재료로 기억과 시간을 탐구한 개념미술",
         "대표작 10선: '깃발', '방', '연기드로잉', '따뜻한 벽' 등"
       ],
       "artistIntro": "인천 출생, 이화여대에서 회화를 공부하고 독일 뒤셀도르프에서 귄터 우커에게 사사했다. 귀국 후 이화여대에서 27년간 후학을 양성했으며, 기억·시간·존재를 주제로 한 개념미술 작업으로 알려져 있다. 2023년 타계.",
-      "video": { "url": "https://www.youtube.com/watch?v=goda2czGnsc", "title": "📌새로운 전시 추천(서울)! 우순옥, 예술은 이미 당신의 마음속에 있다", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=goda2czGnsc",
+        "title": "📌새로운 전시 추천(서울)! 우순옥, 예술은 이미 당신의 마음속에 있다",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "otherspaces-leeum-2026",
@@ -378,17 +535,28 @@
       "colorSoft": "#F2E4F1",
       "lat": 37.5384,
       "lng": 126.9995,
-      "period": { "start": "2026-06-01", "end": "2026-11-29", "startApprox": true },
+      "period": {
+        "start": "2026-06-01",
+        "end": "2026-11-29",
+        "startApprox": true
+      },
       "hours": "10:00~18:00 (사전예약제 운영, 방문 전 홈페이지 확인 권장)",
       "closedDay": "매주 월요일",
       "nightOpen": null,
       "admission": "무료 (사전예약 필요)",
-      "transit": { "text": "약 35분", "note": "건대입구 기준, 이태원 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 35분",
+        "note": "건대입구 기준, 이태원 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "1956~1976년 활동한 여성 작가들의 실험적 설치·환경 작업 재조명"
       ],
       "artistIntro": "20세기 중후반 국제적으로 활동한 여성 작가들의 공감각적 설치·환경 작업을 다시 조명하는 기획전.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "artistoftheyear-mmca-2026",
@@ -398,19 +566,33 @@
       "address": "서울 종로구 삼청로 30",
       "color": "#2F6B4F",
       "colorSoft": "#E1EEE7",
-      "lat": 37.5790,
-      "lng": 126.9800,
-      "period": { "start": "2026-06-01", "end": "2026-12-06", "startApprox": true },
+      "lat": 37.579,
+      "lng": 126.98,
+      "period": {
+        "start": "2026-06-01",
+        "end": "2026-12-06",
+        "startApprox": true
+      },
       "hours": "10:00~18:00 (수·토 21:00까지 야간개장)",
       "closedDay": "매주 월요일",
-      "nightOpen": { "days": "수토", "time": "21:00" },
+      "nightOpen": {
+        "days": "수토",
+        "time": "21:00"
+      },
       "admission": "무료 (또는 국현 통합관람권, 방문 전 확인 권장)",
-      "transit": { "text": "약 30분", "note": "건대입구 기준, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 30분",
+        "note": "건대입구 기준, 지하철 환승 포함 추정치"
+      },
       "features": [
         "국립현대미술관이 매년 선정하는 한국 대표 작가상 후보전"
       ],
       "artistIntro": "국립현대미술관이 매년 한국 동시대 미술을 이끄는 작가들을 선정해 소개하는 대표 기획전.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "cubist-pompidou-hanwha-2026",
@@ -422,16 +604,26 @@
       "colorSoft": "#E5E7F2",
       "lat": 37.5197,
       "lng": 126.9403,
-      "period": { "start": "2026-06-04", "end": "2026-10-04" },
+      "period": {
+        "start": "2026-06-04",
+        "end": "2026-10-04"
+      },
       "hours": "정보 확인 중 (방문 전 퐁피두센터 한화 홈페이지 확인 권장)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 40분", "note": "건대입구 기준, 여의도 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 40분",
+        "note": "건대입구 기준, 여의도 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "퐁피두센터 한화 개관전, 퐁피두 소장 큐비즘(입체주의) 대표작으로 구성"
       ],
       "artistIntro": "파블로 피카소, 조르주 브라크 등 입체주의를 이끈 작가들의 작품을 퐁피두센터 소장품으로 소개하는 그룹전.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "roadmovie-mmca-gwacheon-2026",
@@ -443,17 +635,28 @@
       "colorSoft": "#EFE8DE",
       "lat": 37.4054,
       "lng": 127.0086,
-      "period": { "start": "2026-05-01", "end": "2026-09-27", "startApprox": true },
+      "period": {
+        "start": "2026-05-01",
+        "end": "2026-09-27",
+        "startApprox": true
+      },
       "hours": "10:00~18:00",
       "closedDay": "매주 월요일",
       "nightOpen": null,
       "admission": "무료 (또는 국현 통합관람권, 방문 전 확인 권장)",
-      "transit": { "text": "약 1시간", "note": "건대입구 기준, 과천 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 1시간",
+        "note": "건대입구 기준, 과천 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "1945년 해방 이후 한국과 일본 현대미술의 교류·영향 관계를 조망하는 기획전"
       ],
       "artistIntro": "해방 이후 한·일 양국에서 활동한 작가들의 작품을 통해 두 나라 현대미술의 관계사를 다루는 그룹전.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "botero-sac-2026",
@@ -465,17 +668,28 @@
       "colorSoft": "#F6E2DC",
       "lat": 37.4795,
       "lng": 127.0142,
-      "period": { "start": "2026-05-01", "end": "2026-08-30", "startApprox": true },
+      "period": {
+        "start": "2026-05-01",
+        "end": "2026-08-30",
+        "startApprox": true
+      },
       "hours": "10:00~19:00 (입장마감 18:00)",
       "closedDay": "",
       "nightOpen": null,
-      "transit": { "text": "약 50분", "note": "건대입구 기준, 서초 예술의전당 인근, 지하철+버스 포함 추정치" },
+      "transit": {
+        "text": "약 50분",
+        "note": "건대입구 기준, 서초 예술의전당 인근, 지하철+버스 포함 추정치"
+      },
       "features": [
         "풍만하고 과장된 형태로 유명한 콜롬비아 화가 페르난도 보테로 대규모 회고전",
         "8/30 종료 예정 — 방문 서두르기"
       ],
       "artistIntro": "콜롬비아 출신 화가·조각가. 인물과 사물을 풍만하게 부풀린 독자적 '보테리즘' 양식으로 세계적 명성을 얻었다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
     },
     {
       "id": "maxsiedentopf-groundseesaw-central-2026",
@@ -485,19 +699,59 @@
       "address": "서울 중구 세종대로 14 (그랜드센트럴 3F)",
       "color": "#3E8A7E",
       "colorSoft": "#E2F1EE",
-      "lat": 37.5570,
+      "lat": 37.557,
       "lng": 126.9723,
-      "period": { "start": "2026-05-01", "end": "2026-08-30", "startApprox": true },
+      "period": {
+        "start": "2026-05-01",
+        "end": "2026-08-30",
+        "startApprox": true
+      },
       "hours": "10:00~19:00 (입장마감 18:00)",
       "closedDay": "매주 월요일",
       "nightOpen": null,
-      "transit": { "text": "약 25분", "note": "건대입구 기준, 서울역 인근, 지하철 환승 포함 추정치" },
+      "transit": {
+        "text": "약 25분",
+        "note": "건대입구 기준, 서울역 인근, 지하철 환승 포함 추정치"
+      },
       "features": [
         "위트있는 개념미술로 잘 알려진 독일 작가 맥스 시덴토프 개인전",
         "8/30 종료 예정 — 방문 서두르기"
       ],
       "artistIntro": "독일 출신 아티스트로, 유머러스하고 기발한 발상의 설치·사진 작업으로 SNS에서 큰 화제를 모아왔다.",
-      "video": { "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg", "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더", "channel": "아츠앤트래블" }
+      "video": {
+        "url": "https://www.youtube.com/watch?v=kMv4CKiH1Pg",
+        "title": "📌8월 서울, 놓치면 아쉬운 전시 4 + 전시 캘린더",
+        "channel": "아츠앤트래블"
+      }
+    },
+    {
+      "id": "pavilion-seoul-kcs-k1-sqjg",
+      "title": "Pavilion Seoul",
+      "artist": "<UNKNOWN>",
+      "venue": "KCS K1",
+      "address": "서울 용산구 한강대로 147",
+      "color": "#7C6BC4",
+      "colorSoft": "#EDE9FB",
+      "lat": null,
+      "lng": null,
+      "period": {
+        "start": "2026-09-01",
+        "end": "2026-09-06"
+      },
+      "hours": "일반 관람 9.2(수) - 9.6(일), VIP 프리뷰 9.1(화)",
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": "VIP 35,000원 / 일반 10,500원",
+      "transit": null,
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://youtu.be/BZ0oN3XII_s?si=GDr1Ma4l05F_-yCJ",
+        "title": "이 전시 보러 전세계에서 몰려드는 중 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-09-02T17:22:18.663Z"
     }
   ]
 }
