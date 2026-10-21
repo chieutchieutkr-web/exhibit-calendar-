@@ -46,7 +46,7 @@
 
 ## 자동 업데이트 구조 (2026-10-21 변경)
 
-- **Vercel Cron**: `vercel.json`의 crons가 매일 00:00 UTC(한국 09:00경)에 `api/cron-update.js`를 호출. 두 채널 RSS → `data/seen.json`에 없는 새 영상만(최근 7일 안에 올라온 것만, 1회 최대 4개) → YouTube API로 설명란 전문 → Haiku로 전시 추출 → 지오코딩 → `exhibitions.json`/`seen.json` 커밋. 이미 끝난 전시·기존 전시와 제목+장소가 겹치는 건 건너뜀. 추출 실패한 영상은 seen에 안 넣어 다음 실행에서 재시도.
+- **Vercel Cron**: `vercel.json`의 crons가 매일 00:00 UTC(한국 09:00경)에 `api/cron-update.js`를 호출. 두 채널 최신 영상 목록(YouTube Data API, RSS는 404/500이 잦아 안 씀) → `data/seen.json`에 없는 새 영상만(최근 7일 안에 올라온 것만, 1회 최대 4개) → YouTube API로 설명란 전문 → Haiku로 전시 추출 → 지오코딩 → `exhibitions.json`/`seen.json` 커밋. 이미 끝난 전시·기존 전시와 제목+장소가 겹치는 건 건너뜀. 추출 실패한 영상은 seen에 안 넣어 다음 실행에서 재시도.
 - 공통 로직은 `lib/exhibit-core.js`(`api/submit.js`와 공유). **Vercel 환경변수 `CRON_SECRET` 추가 필요**(없으면 401). 수동 테스트: `Authorization: Bearer <CRON_SECRET>` 헤더로 `/api/cron-update?dry=1` 호출(GitHub에 쓰지 않고 결과만 반환).
 - **이전 방식(claude.ai 클라우드 예약 루틴 `exhibit-calendar-weekly-update`)이 실패한 이유**: 루틴이 도는 클라우드 샌드박스의 네트워크 정책(기본 Trusted 허용목록)에 youtube.com이 없어 RSS 접속이 403(`egress proxy denied`)으로 막혔고, 8/31엔 GitHub 쓰기 권한도 없어 push 실패, 10/19엔 사용량 한도로 중단. **8/24~8/26의 데이터는 루틴이 아니라 로컬 PC 세션에서 만든 것**이라 루틴은 한 번도 성공한 적이 없었음(2개월간 몰랐음). 환경 네트워크 설정은 UI에서 못 찾아 포기하고 Vercel로 옮김. 이 루틴은 사용자가 claude.ai/code/routines에서 일시정지/삭제해야 함(Claude가 API로 삭제 불가). `AGENT_PROMPT.md`/`예약루틴_정보.txt`는 이전 방식 기록으로 남김.
 - **교훈**: 클라우드 루틴(샌드박스)은 허용 도메인 밖으로 못 나감 → 외부 사이트 접속이 필요한 일은 Vercel 서버리스나 로컬에서 하고, 루틴을 만들면 "지금 실행"으로 첫날 한 번 돌려 확인할 것.

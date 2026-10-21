@@ -1,5 +1,5 @@
 // Vercel Cron이 매일 호출하는 자동 업데이트 함수 (vercel.json의 crons 참고)
-// 흐름: 두 채널 RSS → data/seen.json에 없는 새 영상만 → 설명란 전문 조회 → Claude로 전시 추출 → 지오코딩 → GitHub 커밋
+// 흐름: 두 채널 최신 영상 목록(YouTube Data API) → data/seen.json에 없는 새 영상만 → 설명란 전문 조회 → Claude로 전시 추출 → 지오코딩 → GitHub 커밋
 // (클라우드 루틴 샌드박스는 youtube.com이 막혀 있어서, YouTube 접속을 Vercel 서버에서 처리하도록 옮긴 것)
 //
 // 추가 환경변수: CRON_SECRET (아무 긴 랜덤 문자열). 설정하면 Vercel이 호출 때 Authorization: Bearer <값>을 자동으로 붙임.
@@ -18,13 +18,15 @@ const CHANNELS = {
 const RECENT_DAYS = 7; // 이보다 오래된 미처리 영상은 무시(주 1회 갱신 기준으로 최근 일주일치만)
 const MAX_VIDEOS_PER_RUN = 4; // 함수 실행시간 제한 때문에 한 번에 처리할 영상 수. 나머지는 다음날 실행에서 이어서 처리됨
 
+// 채널의 최신 업로드 영상 목록. RSS(feeds/videos.xml)는 404/500이 자주 나서 YouTube Data API의 업로드 재생목록(UU + 채널ID 뒷부분)을 씀
 async function fetchFeedVideoIds(channelId) {
-  const r = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`);
-  if (!r.ok) throw new Error(`RSS 조회 실패(${channelId}): ${r.status}`);
-  const xml = await r.text();
-  // 오래된 순으로 처리하려고 published도 같이 뽑는다
-  return [...xml.matchAll(/<entry>[\s\S]*?<yt:videoId>([\w-]+)<\/yt:videoId>[\s\S]*?<published>([^<]+)<\/published>/g)]
-    .map((m) => ({ id: m[1], published: m[2] }));
+  const key = process.env.YOUTUBE_API_KEY;
+  if (!key) throw new Error('서버에 YOUTUBE_API_KEY가 설정되지 않았어요');
+  const playlistId = 'UU' + channelId.slice(2);
+  const r = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&playlistId=${playlistId}&maxResults=15&key=${key}`);
+  if (!r.ok) throw new Error(`영상 목록 조회 실패(${channelId}): ${r.status} ${(await r.text()).slice(0, 200)}`);
+  const json = await r.json();
+  return (json.items || []).map((it) => ({ id: it.contentDetails.videoId, published: it.contentDetails.videoPublishedAt }));
 }
 
 const norm = (s) => (s || '').toLowerCase().replace(/[^\w가-힣]+/g, '');
