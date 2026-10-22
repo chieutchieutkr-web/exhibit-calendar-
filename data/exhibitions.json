@@ -758,11 +758,11 @@
       "title": "모던 아트의 탄생 – 스위스 쿤스트하우스 취리히 소장품 특별전",
       "artist": "<UNKNOWN>",
       "venue": "국립중앙박물관 특별전시실 1",
-      "address": "서울",
+      "address": "서울 용산구 서빙고로 137",
       "color": "#2D6E8E",
       "colorSoft": "#E1EDF2",
-      "lat": null,
-      "lng": null,
+      "lat": 37.5239,
+      "lng": 126.9803,
       "period": {
         "start": "2026-11-27",
         "end": "2027-04-18"
@@ -771,7 +771,10 @@
       "closedDay": "",
       "nightOpen": null,
       "admission": "성인 2만 원, 청소년 1.8만 원",
-      "transit": null,
+      "transit": {
+        "text": "약 40분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
       "features": [
         "취리히 쿤스트하우스 소장품 85점 출품",
         "클로드 모네, 칸딘스키, 자코메티 등 거장 작품 전시",
