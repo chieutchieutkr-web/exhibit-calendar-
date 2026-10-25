@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22",
+  "generatedAt": "2026-10-25",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -833,6 +833,230 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-10-22T00:06:11.104Z"
+    },
+    {
+      "id": "전형주-개인전-아리아갤러리-dlac",
+      "title": "전형주 개인전",
+      "artist": "전형주",
+      "venue": "아리아갤러리",
+      "address": "대전 중구 중앙로170번길 48, 1층",
+      "color": "#3E6FA8",
+      "colorSoft": "#E8F0F9",
+      "lat": 37.5642066,
+      "lng": 126.9737733,
+      "period": {
+        "start": "2026-10-23",
+        "end": "2026-11-04"
+      },
+      "hours": "12:00 - 19:00",
+      "closedDay": "휴관일 없음",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 45분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=rvmTy-625g4",
+        "title": "45년째 작은 붓으로 거대한 풍경을 그리는 레전드 화가..🥹",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-10-25T00:46:39.025Z"
+    },
+    {
+      "id": "샤갈-너머의-여정-퐁피두센터-한화-a3d8",
+      "title": "샤갈, 너머의 여정",
+      "artist": "마르크 샤갈",
+      "venue": "퐁피두센터 한화",
+      "address": "서울특별시 영등포구 63로 50 63빌딩 별관",
+      "color": "#6E4E7E",
+      "colorSoft": "#F1E9F5",
+      "lat": 37.5204245,
+      "lng": 126.9397105,
+      "period": {
+        "start": "2026-11-24",
+        "end": "2027-03-28"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 55분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:44.741Z"
+    },
+    {
+      "id": "조지아-오키프와-미국-모더니즘-국립현대미술관-과천-dlx8",
+      "title": "조지아 오키프와 미국 모더니즘",
+      "artist": "조지아 오키프",
+      "venue": "국립현대미술관 과천",
+      "address": "경기도 과천시 광명로 313 국립현대미술관",
+      "color": "#2D6E8E",
+      "colorSoft": "#E1EDF2",
+      "lat": 37.4311346,
+      "lng": 127.0199375,
+      "period": {
+        "start": "2026-11-12",
+        "end": "2027-03-21"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 60분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:45.684Z"
+    },
+    {
+      "id": "모던-아트의-탄생-쿤스트하우스-취리히-소장품-특별전-국립중앙박물관-ib8o",
+      "title": "모던 아트의 탄생 – 쿤스트하우스 취리히 소장품 특별전",
+      "artist": "<UNKNOWN>",
+      "venue": "국립중앙박물관",
+      "address": "서울특별시 용산구 서빙고로 137 3층",
+      "color": "#5C8A3A",
+      "colorSoft": "#EAF1E2",
+      "lat": 37.524059,
+      "lng": 126.979133,
+      "period": {
+        "start": "2026-11-27",
+        "end": "2027-04-18"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 40분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:46.499Z"
+    },
+    {
+      "id": "테아스터-게이츠-african-still-life-화이트큐브-서울-care",
+      "title": "테아스터 게이츠: African Still Life",
+      "artist": "테아스터 게이츠",
+      "venue": "화이트큐브 서울",
+      "address": "서울특별시 강남구 도산대로45길 6",
+      "color": "#6E4E7E",
+      "colorSoft": "#F1E9F5",
+      "lat": 37.5228375,
+      "lng": 127.0363088,
+      "period": {
+        "start": "2026-11-04",
+        "end": "2026-12-18"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": "무료",
+      "transit": {
+        "text": "약 25분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:47.296Z"
+    },
+    {
+      "id": "팸-에블린-페이스-서울-3mwz",
+      "title": "팸 에블린",
+      "artist": "팸 에블린",
+      "venue": "페이스 서울",
+      "address": "서울특별시 용산구 이태원로 267 페이스갤러리",
+      "color": "#3E6FA8",
+      "colorSoft": "#E8F0F9",
+      "lat": 37.5384432,
+      "lng": 127.0013336,
+      "period": {
+        "start": "2026-11-05",
+        "end": "2026-12-26"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": "무료",
+      "transit": {
+        "text": "약 35분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:48.075Z"
+    },
+    {
+      "id": "파리의-이방인-국립현대미술관-덕수궁-a572",
+      "title": "파리의 이방인",
+      "artist": "<UNKNOWN>",
+      "venue": "국립현대미술관 덕수궁",
+      "address": "서울특별시 종로구 사직로 161 경복궁",
+      "color": "#6E4E7E",
+      "colorSoft": "#F1E9F5",
+      "lat": 37.5788408,
+      "lng": 126.9770162,
+      "period": {
+        "start": "2026-12-17",
+        "end": "2027-05-09"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 45분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5xgN228q9bY",
+        "title": "📌올 11월 전시도 미쳤.. 샤갈·오키프·칸딘스키가 온다?!",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-10-25T00:46:48.886Z"
     }
   ]
 }
