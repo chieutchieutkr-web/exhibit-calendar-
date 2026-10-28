@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25",
+  "generatedAt": "2026-10-28",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1057,6 +1057,43 @@
         "channel": "아츠앤트래블"
       },
       "submittedAt": "2026-10-25T00:46:48.886Z"
+    },
+    {
+      "id": "2026-창원조각비엔날레-공명장-창원-성산아트홀-창원역사민속관-진해역-일-q7hw",
+      "title": "2026 창원조각비엔날레 《공명장》",
+      "artist": "<UNKNOWN>",
+      "venue": "창원 성산아트홀, 창원역사민속관, 진해역 일대, 마산어시장 등 창원 일대",
+      "address": null,
+      "color": "#C9426F",
+      "colorSoft": "#FCE9F0",
+      "lat": null,
+      "lng": null,
+      "period": {
+        "start": "2026-09-30",
+        "end": "2026-11-15"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": null,
+      "features": [
+        "설치미술",
+        "조각",
+        "비엔날레"
+      ],
+      "videoHighlights": [
+        "세계적인 설치미술가 김수자 작가의 신작",
+        "진해역에 선보인 신작",
+        "마산어시장과 성산아트홀 등 도시 곳곳의 특별한 작품들"
+      ],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=F3OOhdlkL8A",
+        "title": "“한국부터 아시아까지” 싹 다 모은 역대급 조각 전시",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-10-28T00:46:39.321Z"
     }
   ]
 }
