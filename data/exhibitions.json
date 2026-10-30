@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28",
+  "generatedAt": "2026-10-30",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1094,6 +1094,42 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-10-28T00:46:39.321Z"
+    },
+    {
+      "id": "브래드-월스-사진전-역동하는-삶-찰나의-예술-그라운드시소-용산-아이파크몰-69xj",
+      "title": "브래드 월스 사진전: 역동하는 삶, 찰나의 예술",
+      "artist": "브래드월스(Brad Walls)",
+      "venue": "그라운드시소 용산 (아이파크몰 용산점 리빙파크 8F)",
+      "address": "서울시 용산구 한강대로23길 55",
+      "color": "#3F7F79",
+      "colorSoft": "#E6F2F0",
+      "lat": 37.5297718,
+      "lng": 126.9647415,
+      "period": {
+        "start": "2026-09-11",
+        "end": "2027-03-01"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 45분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "대형 작품 130여 점",
+        "라이브 발레 퍼포먼스",
+        "글로벌 댄스 크루와의 협업 신작"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=wF6swCMaK4Y",
+        "title": "완벽주의 예술가가 각잡고 만든 작품 📸",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-10-30T00:46:39.438Z"
     }
   ]
 }
