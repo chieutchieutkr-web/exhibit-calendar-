@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-05",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1233,6 +1233,248 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-11-04T00:46:39.751Z"
+    },
+    {
+      "id": "the-masterpieces-of-korean-craft-뿌리와-열매--pmhp",
+      "title": "The Masterpieces of Korean Craft: 뿌리와 열매",
+      "artist": "104명의 작가",
+      "venue": "아산 온양민속박물관 구정아트센터",
+      "address": null,
+      "color": "#3F7F79",
+      "colorSoft": "#E6F2F0",
+      "lat": null,
+      "lng": null,
+      "period": {
+        "start": "2026-10-20",
+        "end": "2026-11-22"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": null,
+      "features": [
+        "공예 작품 600여 점",
+        "작가의 탐구 과정"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:43.175Z"
+    },
+    {
+      "id": "the-masterpieces-of-korean-craft-뿌리와-열매--q7r6",
+      "title": "The Masterpieces of Korean Craft: 뿌리와 열매",
+      "artist": "104명의 작가",
+      "venue": "청주시한국공예관",
+      "address": "충청북도 청주시 청원구 상당로 314 문화제조창 본관",
+      "color": "#A8802A",
+      "colorSoft": "#F7EFDD",
+      "lat": 36.6565971,
+      "lng": 127.4905955,
+      "period": {
+        "start": "2027-01-13",
+        "end": "2027-02-14"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 385분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "작가의 탐구 과정"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:44.111Z"
+    },
+    {
+      "id": "영남율려-창원-성산아트홀-l2ij",
+      "title": "영남율려 嶺南律呂",
+      "artist": "104명의 작가",
+      "venue": "창원 성산아트홀",
+      "address": "경상남도 창원시 성산구 중앙대로 181",
+      "color": "#D4653A",
+      "colorSoft": "#FCEDE5",
+      "lat": 35.229387,
+      "lng": 128.6831192,
+      "period": {
+        "start": "2027-01-12",
+        "end": "2027-02-14"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 1050분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "자연의 소리와 향"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:44.884Z"
+    },
+    {
+      "id": "homo-faber-homo-sentiens-제작하다-감각하다-국립춘천박-x9q2",
+      "title": "Homo Faber/Homo Sentiens: 제작하다, 감각하다",
+      "artist": "104명의 작가",
+      "venue": "국립춘천박물관",
+      "address": "강원특별자치도 춘천시 우석로 70 국립춘천박물관",
+      "color": "#7C6BC4",
+      "colorSoft": "#EDE9FB",
+      "lat": 37.8639007,
+      "lng": 127.7538801,
+      "period": {
+        "start": "2026-11-24",
+        "end": "2026-12-27"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 260분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "재료와 손끝의 감각"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:45.680Z"
+    },
+    {
+      "id": "homo-faber-homo-sentiens-제작하다-감각하다-강릉아트센-xsat",
+      "title": "Homo Faber/Homo Sentiens: 제작하다, 감각하다",
+      "artist": "104명의 작가",
+      "venue": "강릉아트센터",
+      "address": "서울특별시 강남구 봉은사로30길 74 2층",
+      "color": "#5C8A3A",
+      "colorSoft": "#EAF1E2",
+      "lat": 37.5028263,
+      "lng": 127.0368073,
+      "period": {
+        "start": "2027-01-22",
+        "end": "2027-02-21"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 30분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "재료와 손끝의 감각"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:46.503Z"
+    },
+    {
+      "id": "공유-자산-common-wealth-광주디자인진흥원-h4h9",
+      "title": "공유 자산 Common Wealth",
+      "artist": "104명의 작가",
+      "venue": "광주디자인진흥원",
+      "address": "전남광주통합특별시 북구 첨단과기로176번길 27 광주디자인진흥원",
+      "color": "#7A6A4E",
+      "colorSoft": "#F0EBE0",
+      "lat": 35.2238349,
+      "lng": 126.846575,
+      "period": {
+        "start": "2026-11-20",
+        "end": "2026-12-26"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 925분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "기술과 기억"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:47.313Z"
+    },
+    {
+      "id": "공유-자산-common-wealth-제주-예술공간이아-ocpp",
+      "title": "공유 자산 Common Wealth",
+      "artist": "104명의 작가",
+      "venue": "제주 예술공간이아",
+      "address": "제주특별자치도 제주시 중앙로14길 21 B1F, 3F, 4F",
+      "color": "#3E6FA8",
+      "colorSoft": "#E8F0F9",
+      "lat": 33.5109073,
+      "lng": 126.52186,
+      "period": {
+        "start": "2027-01-20",
+        "end": "2027-02-21"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 1605분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "공예 작품 600여 점",
+        "기술과 기억"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=_o5q9l7-Sco",
+        "title": "“모르면 손해!” 스케일 미쳐버린 전국구 공예전시 열렸습니다 ㄷㄷ",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-05T00:46:48.119Z"
     }
   ]
 }
