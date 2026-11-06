@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05",
+  "generatedAt": "2026-11-06",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1475,6 +1475,38 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-11-05T00:46:48.119Z"
+    },
+    {
+      "id": "수집된-시간의-감각-the-sense-of-collected-time-이-11v6",
+      "title": "수집된 시간의 감각 : THE SENSE OF COLLECTED TIME",
+      "artist": "<UNKNOWN>",
+      "venue": "이함캠퍼스",
+      "address": "경기 양평군 강하면 강남로 370-10",
+      "color": "#D4653A",
+      "colorSoft": "#FCEDE5",
+      "lat": 37.5026827,
+      "lng": 127.4255897,
+      "period": {
+        "start": "2026-10-24",
+        "end": "2027-10-24"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 125분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=gnfmnCaFf5Q",
+        "title": "\"규모만 1만평\" 요즘 디자인 좋아하는 사람들은 다 '여기' 갑니다!",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-06T00:46:38.667Z"
     }
   ]
 }
