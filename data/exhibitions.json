@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06",
+  "generatedAt": "2026-11-07",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1507,6 +1507,40 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-11-06T00:46:38.667Z"
+    },
+    {
+      "id": "제16회-광주비엔날레-너는-네-삶을-바꿔야-한다-광주비엔날레-전시관-2xvo",
+      "title": "제16회 광주비엔날레 — 너는 네 삶을 바꿔야 한다",
+      "artist": "호추니엔(예술감독), 전세계 43팀(명)의 아티스트",
+      "venue": "광주비엔날레 전시관",
+      "address": "전남광주통합특별시 북구 비엔날레로 109-1 1층",
+      "color": "#C9426F",
+      "colorSoft": "#FCE9F0",
+      "lat": 35.181736,
+      "lng": 126.8898987,
+      "period": {
+        "start": "2026-09-05",
+        "end": "2026-11-15"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 940분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "변화를 다양한 방식과 시선으로 바라본 작품들"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=FSFTlSeE6Zg",
+        "title": "세계 미술계 시선이 올해 이곳에 쏠렸던 이유!?",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-07T00:46:39.130Z"
     }
   ]
 }
