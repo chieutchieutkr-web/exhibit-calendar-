@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08",
+  "generatedAt": "2026-11-11",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1587,6 +1587,39 @@
         "channel": "아츠앤트래블"
       },
       "submittedAt": "2026-11-08T00:46:43.052Z"
+    },
+    {
+      "id": "2026-제5회-제주비엔날레-허끄곡-모닥치곡-이야홍-변용의-기술-제주도립-1hti",
+      "title": "2026 제5회 제주비엔날레 : 허끄곡 모닥치곡 이야홍 - 변용의 기술",
+      "artist": "20개국 69팀의 작가들",
+      "venue": "제주도립미술관, 제주돌문화공원 오백장군갤러리, 예술공간 이아, 제주아트플랫폼, 갤러리레미콘",
+      "address": "제주도",
+      "color": "#B08968",
+      "colorSoft": "#F3EAE0",
+      "lat": null,
+      "lng": null,
+      "period": {
+        "start": "2026-08-25",
+        "end": "2026-11-15"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": "무료",
+      "transit": null,
+      "features": [
+        "유배, 신화, 돌문화라는 제주의 세 갈래 이야기",
+        "제주만의 방식으로 변용된 섬의 역사",
+        "폐막까지 무료개방"
+      ],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=gzX2gtlcYQA",
+        "title": "전세계에서 관람객 몰려든다는 ‘이 전시’",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-11T00:46:40.877Z"
     }
   ]
 }
