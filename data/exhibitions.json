@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11",
+  "generatedAt": "2026-11-12",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1620,6 +1620,70 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-11-11T00:46:40.877Z"
+    },
+    {
+      "id": "툴루즈-로트렉-수잔-발라동-몽마르트르의-화가들-세종미술관-nvsz",
+      "title": "툴루즈 로트렉 & 수잔 발라동: 몽마르트르의 화가들",
+      "artist": "툴루즈 로트렉, 수잔 발라동",
+      "venue": "세종미술관",
+      "address": "세종특별자치시 나성남로 7-7",
+      "color": "#B08968",
+      "colorSoft": "#F3EAE0",
+      "lat": 36.481618,
+      "lng": 127.2620591,
+      "period": {
+        "start": "2026-11-07",
+        "end": "2027-02-09"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 430분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5CkDamUpnms",
+        "title": "📌이번 겨울은 서울·도쿄가 유럽?! 터너·고흐·샤갈 다온다 👏",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-11-12T00:46:42.663Z"
+    },
+    {
+      "id": "조지아-오키프와-미국-모던아트-국립현대미술관-과천-pcwd",
+      "title": "조지아 오키프와 미국 모던아트",
+      "artist": "조지아 오키프",
+      "venue": "국립현대미술관 과천",
+      "address": "경기도 과천시 광명로 313 국립현대미술관",
+      "color": "#6E4E7E",
+      "colorSoft": "#F1E9F5",
+      "lat": 37.4311346,
+      "lng": 127.0199375,
+      "period": {
+        "start": "2026-11-12",
+        "end": "2027-03-14"
+      },
+      "hours": null,
+      "closedDay": "",
+      "nightOpen": null,
+      "admission": null,
+      "transit": {
+        "text": "약 60분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [],
+      "videoHighlights": [],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=5CkDamUpnms",
+        "title": "📌이번 겨울은 서울·도쿄가 유럽?! 터너·고흐·샤갈 다온다 👏",
+        "channel": "아츠앤트래블"
+      },
+      "submittedAt": "2026-11-12T00:46:43.571Z"
     }
   ]
 }
