@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13",
+  "generatedAt": "2026-11-19",
   "origin": {
     "hospital": "건국대학교병원 (서울 광진구 화양동, 건대입구역 인근)",
     "lat": 37.5407,
@@ -1750,6 +1750,46 @@
         "channel": "널 위한 문화예술"
       },
       "submittedAt": "2026-11-13T00:46:46.433Z"
+    },
+    {
+      "id": "the-dance-of-karma-weaving-a-new-we-아트센터-9peb",
+      "title": "The Dance of Karma: Weaving a New We",
+      "artist": "<UNKNOWN>",
+      "venue": "아트센터 나비",
+      "address": "서울 종로구 율곡로1길 37",
+      "color": "#D4653A",
+      "colorSoft": "#FCEDE5",
+      "lat": 37.5775839,
+      "lng": 126.9804893,
+      "period": {
+        "start": "2026-11-06",
+        "end": "2026-12-12"
+      },
+      "hours": "10:00 ~ 18:00",
+      "closedDay": "일·월",
+      "nightOpen": null,
+      "admission": "무료",
+      "transit": {
+        "text": "약 45분",
+        "note": "건대입구 기준 직선거리 추정치(자동 등록, 실제 대중교통 경로 아님)"
+      },
+      "features": [
+        "로봇 미디어아트",
+        "피지컬 AI",
+        "인터랙티브 전시"
+      ],
+      "videoHighlights": [
+        "풍선을 몸으로 삼은 로봇",
+        "관람객의 얼굴을 모아 새로운 얼굴을 만드는 로봇",
+        "만화 속 로봇"
+      ],
+      "artistIntro": null,
+      "video": {
+        "url": "https://www.youtube.com/watch?v=QYSDTOV-1vk",
+        "title": "올해 가장 놀랍고도 충격적일 ‘이 전시‘",
+        "channel": "널 위한 문화예술"
+      },
+      "submittedAt": "2026-11-19T00:46:39.454Z"
     }
   ]
 }
